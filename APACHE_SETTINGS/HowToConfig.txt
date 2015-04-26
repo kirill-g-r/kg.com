@@ -1,0 +1,26 @@
+http://generaltea.ru/apache2-ubuntu-virtualhosts-servername/
+
+sudo a2enmod rewrite && sudo /etc/init.d/apache2 restart (включает режим RewriteEngine bla b la bla')
+
+Если сайт находится вне /var/www/ , то в его myweekend.com.conf в настройках апача нужно добавить :
+
+<VirtualHost *:80>
+    ServerName myweekend
+    ServerAlias myweekend.com www.myweekend.com
+    DocumentRoot /home/gkg/_PROJECTS_GKG/PhpStorm_projects_gkg/MyWeekend.com
+
+    <Directory />
+            Options FollowSymLinks
+            AllowOverride All
+    </Directory>
+    <Directory /home/gkg/_PROJECTS_GKG/PhpStorm_projects_gkg/MyWeekend.com>
+            DirectoryIndex index.php
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride All
+            Require all granted
+            allow from all
+    </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/MyWeekend.com.error.log
+    CustomLog ${APACHE_LOG_DIR}/MyWeekend.com.access.log combined
+</VirtualHost>
