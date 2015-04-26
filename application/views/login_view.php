@@ -34,19 +34,19 @@ MAIN CONTENT
 <div id="login-page">
   <div class="container">
 
-    <form class="form-login" role="form" action="/portfolio" method="post">
+    <form class="form-login" role="form" action="/charges" method="post">
       <h2 class="form-login-heading">SIGN IN</h2>
       <div class="login-wrap">
-        <input type="text" name="username" class="form-control" placeholder="Username" autofocus>
+        <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
         <br>
-        <input type="password" name="password" class="form-control" placeholder="Password">
+        <input type="password" name="password" class="form-control" placeholder="Password" required >
         <label class="checkbox">
 		                <span class="pull-right">
 		                    <a data-toggle="modal" href=""> Forgot Password?</a>
 
 		                </span>
         </label>
-        <button class="btn btn-theme btn-block" href="index.html" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
+        <button class="btn btn-theme btn-block" href="" type="submit"><i class="fa fa-lock"></i> SIGN IN</button>
         <hr>
 
         <div class="login-social-link centered">
@@ -108,7 +108,7 @@ MAIN CONTENT
 <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
 <script type="text/javascript" src="js/jquery.backstretch.min.js"></script>
 <script>
-  $.backstretch("../../images/pic01.jpg", {speed: 500});
+  $.backstretch("../../images/pic02.jpg", {speed: 500});
 </script>
 
 

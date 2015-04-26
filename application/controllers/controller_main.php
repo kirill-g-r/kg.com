@@ -7,7 +7,7 @@ class Controller_Main extends Controller
 				
 		if ( $this->userIsLogged() ) {
 			
-			header('Location:/portfolio');
+			header('Location:/charges');
 		
 		} else {
 			
