@@ -1,4 +1,4 @@
 ﻿<p>
-Kirill Goryunov.
+KG.
 &copy; 2015
 </p>
