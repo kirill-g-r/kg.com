@@ -159,6 +159,7 @@ class Login {
 	public function check_user_existence($username, $password) {
 						
 		if (!$dbConnect = new PDO( 'mysql:host=localhost;dbname=MyWeekend', 'root', 'sergsund' )) {
+#		if (!$dbConnect = new PDO( 'mysql:host=localhost;dbname=MyCharges', 'root', 'ahdierahzuexeeco' )) {
 		
 			exit('Failed to connect to DB');
 		

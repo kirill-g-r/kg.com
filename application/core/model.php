@@ -18,7 +18,7 @@ class Model
 		
 		if (!isset($this->dbConnect)) {
 	
-			if (!$this->dbConnect = new PDO( 'mysql:host=localhost;dbname=MyWeekend', 'root', 'sergsund' )) {
+			if (!$this->dbConnect = new PDO( 'mysql:host=localhost;dbname=MyCharges', 'root', 'sergsund' )) {
 				
 				exit('Failed to connect to DB');
 				

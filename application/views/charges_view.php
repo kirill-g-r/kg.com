@@ -4,7 +4,7 @@
 -->
 <html>
 <head>
-    <title>Charge Counter - Kirill Goryunov, 2015</title>
+    <title>Charges Counter - Kirill Goryunov, 2015</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
@@ -21,7 +21,7 @@
 
     <!-- Header -->
     <header id="header">
-        <h1><a href="">Charge Counter</a></h1>
+        <h1><a href="">Charges Counter</a></h1>
         <nav id="nav">
             <ul>
                 <li class="special">
@@ -49,14 +49,14 @@
 
 
                 <section>
-                    <h4>CHARGE</h4>
+                    <h4>CHARGES</h4>
                     <form method="post" action="#">
                         <div class="row uniform">
                             <div class="6u 12u$(xsmall)">
-                                <input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+                                <input type="text" name="charge_name" id="charge_name" value="" placeholder="Name" />
                             </div>
                             <div class="6u$ 12u$(xsmall)">
-                                <input type="email" name="demo-email" id="demo-email" value="" placeholder="Coast" />
+                                <input type="text" name="charge_coast" id="charge_coast" value="" placeholder="Coast" />
                             </div>
                             <div class="12u$">
                                 <div class="select-wrapper">
@@ -96,7 +96,7 @@
 -->
                             <div class="12u$">
                                 <ul class="actions">
-                                    <li><input type="submit" value="Add charge" class="special" /></li>
+                                    <li><input type="button" value="Add new" class="special" onclick="addNewCharge()"/></li>
                                     <li><input type="reset" value="Reset" /></li>
                                 </ul>
                             </div>
@@ -108,6 +108,7 @@
 
                 <section>
                     <h5>summary table</h5>
+<div id="charges_main_list">asd</div>
                     <div class="table-wrapper">
                         <table class="alt" >
                             <thead>
@@ -118,6 +119,15 @@
                             </tr>
                             </thead>
                             <tbody>
+                            <?php
+
+                                foreach ($data as $d) {
+
+                                    echo '<tr><td>'.$d['name'].'</td><td>'.$d['coast'].'</td><td>'.$d['time'].'</td></tr>';
+
+                                }
+
+                            ?>
                             <tr>
                                 <td>Item One</td>
                                 <td>Ante turpis integer aliquet porttitor.</td>
@@ -171,7 +181,7 @@
             <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
         </ul>
         <ul class="copyright">
-            <li>&copy; Charge Counter</li><li> Kirill Goryunov, 2015</li>
+            <li>&copy; Charges Counter</li><li> Kirill Goryunov, 2015</li>
         </ul>
     </footer>
 
@@ -183,6 +193,8 @@
 <script src="js/jquery.scrolly.min.js"></script>
 <script src="js/skel.min.js"></script>
 <script src="js/init.js"></script>
+
+<script src="js/pages/charges/charges.js"></script>
 
 </body>
 </html>

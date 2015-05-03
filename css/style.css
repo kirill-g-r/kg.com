@@ -2134,6 +2134,7 @@
 			border: solid 1px #fff;
 			border-left: 0;
 			border-right: 0;
+			color: #101010;
 		}
 
 			table tbody tr:nth-child(2n + 1) {
