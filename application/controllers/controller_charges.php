@@ -22,7 +22,7 @@ class Controller_Charges extends Controller
 
         if (isset($_POST['type_request']) && $_POST['type_request'] == 'ajax') {
 
-#            echo 'ITS AJAX!!!!!!!!!!';
+#            echo 'ITS AJAX!!!!!!!!';
 #            var_dump($_POST);
 #            return 1;
 
