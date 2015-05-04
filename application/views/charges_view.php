@@ -3,29 +3,28 @@
     <form method="post" action="#" onsubmit="addNewCharge()" ">
         <div class="row uniform">
             <div class="6u 12u$(xsmall)">
-                <input type="text" name="charge_name" id="charge_name" value="" placeholder="Name" required autofocus />
+                <input type="text" name="add_charge_name" id="add_charge_name" value="" placeholder="Name" required autofocus />
             </div>
             <div class="4u 12u$(xsmall)">
-                <input type="text" name="charge_coast" id="charge_coast" value="" placeholder="Coast" required />
+                <input type="text" name="add_charge_coast" id="add_charge_coast" value="" placeholder="Coast" required />
             </div>
             <div class="2u$ 12u$(xsmall)">
                 <div class="select-wrapper">
-                    <select name="charge_currency" id="charge_currency">
-                        <option value="1" selected >RUB</option>
-                        <option value="2">USD</option>
-                        <option value="3">EUR</option>
-                        <option value="4">YEN</option>
+                    <select name="add_charge_currency" id="add_charge_currency">
+                        <option value="RUB" selected >RUB</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
                     </select>
                 </div>
             </div>
             <div class="12u$">
                 <div class="select-wrapper">
-                    <select name="charge_category" id="charge_category" required >
+                    <select name="add_charge_category" id="add_charge_category" required >
                         <option value="">- Category -</option>
-                        <option value="1">Transport</option>
-                        <option value="2">Food</option>
-                        <option value="3">Fees</option>
-                        <option value="4">Other</option>
+                        <option value="Transport">Transport</option>
+                        <option value="Food">Food</option>
+                        <option value="Fees">Fees</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
             </div>

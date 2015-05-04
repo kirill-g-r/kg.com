@@ -38,10 +38,26 @@ class Controller_Charges extends Controller
     function addcharge() {
 
         $this->checkUserAccess();
-        $this->model->addcharge($_POST);
-        $data = $this->model->get_data();
 
+        $this->model->addcharge( $this->parse_new_charge() );
+        $data = $this->model->get_data();
         $this->view->generate('', 'charges_view.php', $data);
+
+    }
+    function parse_new_charge() {
+
+        $charge['name'] =       $_POST['add_charge_name'];
+        $charge['coast'] =      $_POST['add_charge_coast'];
+        $charge['currency'] =   $_POST['add_charge_currency'];
+        $charge['category'] =   $_POST['add_charge_category'];
+
+        foreach ($charge as $key => $ch) {
+
+            $charge[$key] = trim(htmlspecialchars(stripcslashes($ch)));
+
+        }
+
+        return $charge;
 
     }
 

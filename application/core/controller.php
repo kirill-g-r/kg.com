@@ -2,8 +2,6 @@
 
 class Controller {
 
-	public $config;
-
 	public $model;
 	public $view;
 	
