@@ -26,7 +26,7 @@ class Login {
 				
 		}
 	
-		echo 'OK LOGIN!';
+//		echo 'OK LOGIN!';
 		return true;
 	
 	}
@@ -46,7 +46,7 @@ class Login {
 	
 					//header('Location:/' . $this->getRequestURI());
 					//exit();
-					echo 'OK_loginUserByFormData';
+//					echo 'OK_loginUserByFormData';
 					return true;
 	
 				} else {
@@ -81,7 +81,7 @@ class Login {
 	
 					//header('Location:' . $this->getRequestURI());
 					//exit();
-					echo 'OK_loginUserBySessionData';
+//					echo 'OK_loginUserBySessionData';
 					return true;
 	
 				} else {
@@ -157,14 +157,15 @@ class Login {
 	
 	}
 	public function check_user_existence($username, $password) {
-						
-		if (!$dbConnect = new PDO( 'mysql:host=localhost;dbname=MyWeekend', 'root', 'sergsund' )) {
+
+#		if (!$dbConnect = new PDO( 'mysql:host='.$config['db_connect_local']['db_host'].';dbname='.$config['db_connect_local']['db_name'], $config['db_connect_local']['db_user'], $config['db_connect_local']['db_password'] )) {
 #		if (!$dbConnect = new PDO( 'mysql:host=localhost;dbname=MyCharges', 'root', 'ahdierahzuexeeco' )) {
+		if (!$dbConnect = new PDO( 'mysql:host=localhost;dbname=MyCharges', 'root', 'sergsund' )) {
 		
 			exit('Failed to connect to DB');
 		
 		}
-	
+
 		$sql = 'SELECT *
 				FROM `users`
 				WHERE
@@ -177,8 +178,11 @@ class Login {
 				':username' => $username,
 				':password' => $password
 		));
+
+		$result = $sth->fetch();
+		unset($dbConnect);
 	
-		return $sth->fetch();
+		return $result;
 	
 	}
 	

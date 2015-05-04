@@ -9,7 +9,7 @@ class Model_Portfolio extends Model
 		// Здесь мы просто сэмулируем реальные данные.
 
 	
-		return $this->dbConnect->query( 'SELECT * FROM `portfolio`;' );
+//		return $this->dbConnect->query( 'SELECT * FROM `users`;' );
 		
 		return array(
 			

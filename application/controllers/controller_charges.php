@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: gkg
- * Date: 26.04.15
- * Time: 23:38
- */
 
 class Controller_Charges extends Controller
 {
@@ -17,32 +11,40 @@ class Controller_Charges extends Controller
 
     function action_index()
     {
-#        if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
-#            && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' ) {
+        if ($ajax_action = $this->ajax_request()) {
 
-        if (isset($_POST['type_request']) && $_POST['type_request'] == 'ajax') {
+            // if AJAX-request
 
-#            echo 'ITS AJAX!!!!!!!!!!!';
-#            var_dump($_POST);
-#            return 1;
+            return $this->$ajax_action();
 
-            $this->model->addcharge($_POST);
-            $data = $this->model->get_data();
-            $this->view->generate('', 'charges_view.php', $data);
+        } else {
 
-            return 1;
+            // simple load page
+
+            return $this->load_page();
 
         }
 
+    }
+    function load_page() {
+
         $this->checkUserAccess();
         $data = $this->model->get_data();
-        $this->view->generate('', 'charges_view.php', $data);
 
-        return 1;
-
-
+        $this->view->generate('charges_view.php', 'template_view.php', $data);
 
     }
+
+    function addcharge() {
+
+        $this->checkUserAccess();
+        $this->model->addcharge($_POST);
+        $data = $this->model->get_data();
+
+        $this->view->generate('', 'charges_view.php', $data);
+
+    }
+
 
     function __destruct() {
 

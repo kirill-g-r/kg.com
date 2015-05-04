@@ -11,7 +11,8 @@ class Model
 			> методы для работы с NoSQL;
 			> и др.
 	*/
-	
+
+	public $config;
 	public $dbConnect;
 	
 	public function __construct() {
@@ -19,6 +20,8 @@ class Model
 		if (!isset($this->dbConnect)) {
 	
 			if (!$this->dbConnect = new PDO( 'mysql:host=localhost;dbname=MyCharges', 'root', 'sergsund' )) {
+
+#			if (!$this->dbConnect = new PDO( 'mysql:host='.$config['db_connect_local']['db_host'].';dbname='.$config['db_connect_local']['db_name'], $config['db_connect_local']['db_user'], $config['db_connect_local']['db_password'] )) {
 				
 				exit('Failed to connect to DB');
 				

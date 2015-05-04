@@ -1,7 +1,9 @@
 <?php
 
 class Controller {
-	
+
+	public $config;
+
 	public $model;
 	public $view;
 	
@@ -14,6 +16,12 @@ class Controller {
 	public function action_index() {
 	
 		// todo	
+	}
+
+	public function getConfig() {
+
+		return $this->config = parse_ini_file('.configuration.ini', true);
+
 	}
 	
 	public function getRequestURI() {
@@ -34,7 +42,7 @@ class Controller {
 				
 	}
 	public function checkUserAccess() {
-		
+
 		require_once 'application/core/login.php';
 		return Login::checkAccess();
 		
@@ -52,6 +60,24 @@ class Controller {
 				
 		}
 	
+	}
+	public function ajax_request() {
+
+		if (isset($_SERVER['HTTP_X_REQUESTED_WITH'])
+			&& strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+
+			if (@$_POST['type_request'] == 'ajax_request') {
+
+				return $_POST['action'];
+
+			} else {
+
+				return false;
+
+			}
+
+		}
+
 	}
 	
 	
