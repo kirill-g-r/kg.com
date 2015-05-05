@@ -75,6 +75,7 @@
                 <th>Category</th>
                 <th>Name</th>
                 <th>Coast</th>
+                <th>Currency</th>
                 <th>Timestamp</th>
             </tr>
             </thead>
@@ -83,43 +84,21 @@
 
             foreach ($data as $d) {
 
-                echo '<tr><td>'.$d['name'].'</td><td>'.$d['coast'].'</td><td>'.$d['time'].'</td></tr>';
+                echo '<tr><td>'.$d['category'].'</td><td>'.$d['name'].'</td><td>'.$d['coast'].'</td><td>'.$d['currency'].'</td><td>'.$d['time'].'</td></tr>';
 
             }
 
             ?>
-            <tr>
-                <td>Item One</td>
-                <td>Ante turpis integer aliquet porttitor.</td>
-                <td>29.99</td>
-            </tr>
-            <tr>
-                <td>Item Two</td>
-                <td>Vis ac commodo adipiscing arcu aliquet.</td>
-                <td>19.99</td>
-            </tr>
-            <tr>
-                <td>Item Three</td>
-                <td> Morbi faucibus arcu accumsan lorem.</td>
-                <td>29.99</td>
-            </tr>
-            <tr>
-                <td>Item Four</td>
-                <td>Vitae integer tempus condimentum.</td>
-                <td>19.99</td>
-            </tr>
-            <tr>
-                <td>Item Five</td>
-                <td>Ante turpis integer aliquet porttitor.</td>
-                <td>29.99</td>
-            </tr>
             </tbody>
             <tfoot>
             <tr>
 
-                <td><b>Total sum:</b></td>
-                <td></td>
-                <td><b>100.00</b></td>
+                <td colspan="2"><b>Total sum:</b></td>
+                <td><b>
+                        <?php #echo $data['total_sum']; ?>
+                    </b>
+                </td>
+                <td><b>RUB</b></td>
             </tr>
             </tfoot>
         </table>
