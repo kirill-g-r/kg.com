@@ -5,7 +5,7 @@ class Model_Charges extends Model
 
 	public function addcharge( $new_charge = false ) {
 
-		return $this->dbConnect->query( 'INSERT INTO `charges` (`name`, `coast`, `currency`, `category`) VALUES ('.$new_charge['name'].', '.$new_charge['coast'].', '.$new_charge['currency'].', '.$new_charge['category'].') ;' );
+		return $this->dbConnect->query( "INSERT INTO `charges` (`name`, `coast`, `currency`, `category`) VALUES ('".$new_charge['name']."', '".$new_charge['coast']."', '".$new_charge['currency']."', '".$new_charge['category']."') ;" );
 
 	}
 
