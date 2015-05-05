@@ -95,7 +95,7 @@
 
                 <td colspan="2"><b>Total sum:</b></td>
                 <td><b>
-                        <?php #echo $data['total_sum']; ?>
+                        <?php #echo $data['total_sum'];  ?>
                     </b>
                 </td>
                 <td><b>RUB</b></td>
