@@ -9,13 +9,45 @@ class Model_Charges extends Model
 
 	}
 
+	public function get_total_sum($summary_table) {
+
+		global $config;
+
+		$total_sum = 0;
+
+		foreach ($summary_table as $s_t) {
+
+			if ($s_t['currency'] == 'EUR') {
+
+				$total_sum += $s_t['coast'] * $config['currency_rate']['RUB_EUR'];
+
+			} else if ($s_t['currency'] == 'USD') {
+
+				$total_sum += $s_t['coast'] * $config['currency_rate']['RUB_USD'];
+
+			} else {
+
+			$total_sum += $s_t['coast'];
+
+			}
+
+		}
+
+		return $total_sum;
+
+	}
+
 	public function get_data()
 	{	
 		
 		// Здесь мы просто сэмулируем реальные данные.
 
 	
-		return $this->dbConnect->query( 'SELECT * FROM `charges`;' );
+		$data['summary_table'] = $this->dbConnect->query( 'SELECT * FROM `charges`;' )->fetchAll();
+
+		$data['total_sum'] = $this->get_total_sum($data['summary_table']);
+
+		return $data;
 		
 		return array(
 			

@@ -46,7 +46,7 @@ class Controller {
 		
 	}
 	public function userIsLogged() {
-	
+
 		session_start();
 	
 		if (isset($_SESSION['username'])

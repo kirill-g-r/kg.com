@@ -82,7 +82,7 @@
             <tbody>
             <?php
 
-            foreach ($data as $d) {
+            foreach ($data['summary_table'] as $d) {
 
                 echo '<tr><td>'.$d['category'].'</td><td>'.$d['name'].'</td><td>'.$d['coast'].'</td><td>'.$d['currency'].'</td><td>'.$d['time'].'</td></tr>';
 
@@ -95,7 +95,7 @@
 
                 <td colspan="2"><b>Total sum:</b></td>
                 <td><b>
-                        <?php #echo $data['total_sum'];  ?>
+                        <?php echo $data['total_sum'];  ?>
                     </b>
                 </td>
                 <td><b>RUB</b></td>
