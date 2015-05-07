@@ -66,6 +66,50 @@
 <br/>
 
 <section>
+
+    <h5>Category summary table</h5>
+
+    <div class="table-wrapper">
+        <table class="alt" >
+            <thead>
+            <tr>
+                <th>Category</th>
+                <th>Sum</th>
+                <th>Currency</th>
+                <th>Payments count</th>
+                <th>Last payment</th>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+
+            foreach ($data['category_summary_table'] as $d) {
+
+                echo '<tr><td>'.$d['category'].'</td><td>'.$d['sum'].'</td><td>'.$d['currency'].'</td><td>'.$d['payments_count'].'</td><td>'.$d['last_payment'].'</td></tr>';
+
+            }
+
+            ?>
+            </tbody>
+            <tfoot>
+            <tr>
+
+                <td colspan="2"><b>Total sum:</b></td>
+                <td><b>
+                        <?php echo $data['total_sum'];  ?>
+                    </b>
+                </td>
+                <td><b>RUB</b></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+</section>
+
+<BR />
+
+<section>
     <h5>summary table</h5>
 
     <div class="table-wrapper">
@@ -103,6 +147,6 @@
             </tfoot>
         </table>
     </div>
-
 </section>
+
 

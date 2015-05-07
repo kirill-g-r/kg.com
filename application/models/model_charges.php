@@ -3,37 +3,56 @@
 class Model_Charges extends Model
 {
 
+	public $data;
+
 	public function addcharge( $new_charge = false ) {
 
 		return $this->dbConnect->query( "INSERT INTO `charges` (`name`, `coast`, `currency`, `category`) VALUES ('".$new_charge['name']."', '".$new_charge['coast']."', '".$new_charge['currency']."', '".$new_charge['category']."') ;" );
 
 	}
 
-	public function get_total_sum($summary_table) {
+	public function get_coast_in_RUB($data) {
 
 		global $config;
 
-		$total_sum = 0;
+		if ($data['currency'] == 'EUR') {
 
-		foreach ($summary_table as $s_t) {
+			return $data['coast'] * $config['currency_rate']['RUB_EUR'];
 
-			if ($s_t['currency'] == 'EUR') {
+		} else if ($data['currency'] == 'USD') {
 
-				$total_sum += $s_t['coast'] * $config['currency_rate']['RUB_EUR'];
+			return $data['coast'] * $config['currency_rate']['RUB_USD'];
 
-			} else if ($s_t['currency'] == 'USD') {
+		} else {
 
-				$total_sum += $s_t['coast'] * $config['currency_rate']['RUB_USD'];
-
-			} else {
-
-			$total_sum += $s_t['coast'];
-
-			}
+			return $data['coast'];
 
 		}
 
-		return $total_sum;
+	}
+
+	public function get_total_sum() {
+
+		$total_sum = 0;
+
+		foreach ($this->data['summary_table'] as $s_t) {
+
+			$total_sum += $this->get_coast_in_RUB($s_t);
+
+		}
+
+		return $this->data['total_sum'] = $total_sum;
+
+	}
+
+	public function get_summary_table_data() {
+
+		return $this->data['summary_table'] = $this->dbConnect->query( 'SELECT * FROM `charges` ORDER BY `time` DESC;' )->fetchAll();
+
+	}
+	public function get_category_summary_table_data() {
+
+		return $this->data['category_summary_table'] = $this->dbConnect->query( 'SELECT category, sum(coast) as `sum`, currency, count(id) as `payments_count`, max(`time`) as `last_payment` FROM `charges` GROUP BY `category` ORDER BY `sum` DESC;' )->fetchAll();
 
 	}
 
@@ -42,12 +61,16 @@ class Model_Charges extends Model
 		
 		// Здесь мы просто сэмулируем реальные данные.
 
-	
-		$data['summary_table'] = $this->dbConnect->query( 'SELECT * FROM `charges`;' )->fetchAll();
+		$this->get_summary_table_data();
 
-		$data['total_sum'] = $this->get_total_sum($data['summary_table']);
+		$this->get_category_summary_table_data();
 
-		return $data;
+		$this->get_total_sum();
+
+		return $this->data;
+
+
+
 		
 		return array(
 			
