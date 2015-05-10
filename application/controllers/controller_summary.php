@@ -1,11 +1,11 @@
 <?php
 
-class Controller_Charges extends Controller
+class Controller_Summary extends Controller
 {
 
     function __construct() {
 
-        $this->model = new Model_Charges();
+        $this->model = new Model_Summary();
 //        $this->view = new View_Charges();
         $this->view = new View();
     }
@@ -32,7 +32,7 @@ class Controller_Charges extends Controller
         $this->checkUserAccess();
         $data = $this->model->get_data();
 
-        $this->view->generate('charges_view.php', 'template_view.php', $data);
+        $this->view->generate('summary_view.php', 'template_view.php', $data);
 
     }
 
@@ -42,7 +42,7 @@ class Controller_Charges extends Controller
 
         $this->model->addcharge( $this->parse_new_charge() );
         $data = $this->model->get_data();
-        $this->view->generate('', 'charges_view.php', $data);
+        $this->view->generate('', 'summary_view.php', $data);
 
     }
     function parse_new_charge() {
@@ -81,7 +81,7 @@ class Controller_Charges extends Controller
 
         $this->model->delete_charge_from_summary_table($this->delete_charge_from_summary_table_get_id());
         $data = $this->model->get_data();
-        $this->view->generate('', 'charges_view.php', $data);
+        $this->view->generate('', 'summary_view.php', $data);
 
     }
 

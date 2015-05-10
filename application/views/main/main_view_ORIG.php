@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <link rel="shortcut icon" href="../../images/favicon/favicon.png" type="image/png">
+    <link rel="shortcut icon" href="../../../images/favicon/favicon.png" type="image/png">
 
     <title>MyWeekend</title>
 

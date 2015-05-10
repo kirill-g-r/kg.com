@@ -29,6 +29,7 @@
                     <div id="menu">
                         <ul>
                             <li><a href="/">Home</a></li>
+                            <li><a href="/summary">Summary table</a></li>
                             <!--                            <li><a href="generic.html">Generic</a></li>
                                                         <li><a href="elements.html">Elements</a></li>
                             -->

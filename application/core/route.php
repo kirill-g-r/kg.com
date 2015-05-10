@@ -30,6 +30,7 @@ class Route
 
 		// добавляем префиксы
 		$model_name = 'Model_'.$controller_name;
+		$view_name = 'View_'.$controller_name;
 		$controller_name = 'Controller_'.$controller_name;
 		$action_name = 'action_'.$action_name;
 
@@ -46,6 +47,13 @@ class Route
 		if(file_exists($model_path))
 		{
 			include "application/models/".$model_file;
+		}
+
+		$view_file = strtolower($view_name).'.php';
+		$view_path = "application/views/".$view_file;
+		if(file_exists($view_path))
+		{
+			include "application/views/".$view_file;
 		}
 
 		// подцепляем файл с классом контроллера

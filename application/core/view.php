@@ -27,6 +27,12 @@ class View
 		внутри которого будет встраиваться вид
 		для отображения контента конкретной страницы.
 		*/
-		include 'application/views/'.$template_view;
+
+		$template_folder = substr($template_view, 0, strpos($template_view, '_'));
+		$content_folder = substr($content_view, 0, strpos($content_view, '_'));
+
+		$content_view = $content_folder.'/'.$content_view;
+
+		include 'application/views/'.$template_folder.'/'.$template_view;
 	}
 }

@@ -41,18 +41,33 @@ class Model_Charges extends Model
 
 		}
 
-		return $this->data['total_sum'] = $total_sum;
+		return $total_sum;
 
 	}
 
 	public function get_summary_table_data() {
 
-		return $this->data['summary_table'] = $this->dbConnect->query( 'SELECT * FROM `charges` ORDER BY `time` DESC;' )->fetchAll();
+		return $this->dbConnect->query( 'SELECT * FROM `charges` ORDER BY `time` DESC;' )->fetchAll();
 
 	}
 	public function get_category_summary_table_data() {
 
-		return $this->data['category_summary_table'] = $this->dbConnect->query( 'SELECT category, sum(coast) as `sum`, currency, count(id) as `payments_count`, max(`time`) as `last_payment` FROM `charges` GROUP BY `category` ORDER BY `sum` DESC;' )->fetchAll();
+		return $this->dbConnect->query( 'SELECT category, sum(coast) as `sum`, currency, count(id) as `payments_count`, max(`time`) as `last_payment` FROM `charges` GROUP BY `category` ORDER BY `sum` DESC;' )->fetchAll();
+
+	}
+
+	public function delete_charge_from_summary_table($id) {
+
+		return $this->dbConnect->query( 'DELETE FROM `charges` WHERE id = '.$id.' ;' );
+
+	}
+
+	public function get_summary() {
+
+		$this->data['summary_table'] = $this->get_summary_table_data();
+		$this->data['total_sum'] = $this->get_total_sum();
+
+		return $this->data;
 
 	}
 
@@ -61,11 +76,11 @@ class Model_Charges extends Model
 		
 		// Здесь мы просто сэмулируем реальные данные.
 
-		$this->get_summary_table_data();
+		$this->data['summary_table'] = $this->get_summary_table_data();
 
-		$this->get_category_summary_table_data();
+		$this->data['category_summary_table'] = $this->get_category_summary_table_data();
 
-		$this->get_total_sum();
+		$this->data['total_sum'] = $this->get_total_sum();
 
 		return $this->data;
 
