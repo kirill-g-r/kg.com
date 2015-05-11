@@ -61,6 +61,7 @@ class Model_Summary extends Model
 
 		$this->data['summary_table'] = $this->get_summary_table_data();
 		$this->data['total_sum'] = $this->get_total_sum();
+		$this->data['summary_table_month'] = 'APRIL';
 
 		return $this->data;
 
@@ -74,6 +75,9 @@ class Model_Summary extends Model
 		$this->data['summary_table'] = $this->get_summary_table_data();
 
 		$this->data['total_sum'] = $this->get_total_sum();
+
+		$this->data['summary_table_month']['name'] = 'APRIL';
+		$this->data['summary_table_month']['value'] = '04';
 
 		return $this->data;
 

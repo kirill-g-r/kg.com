@@ -43,3 +43,9 @@ function delete_charge_from_summary_table(id_charge_dor_delete) {
     }
 
 }
+
+function summary_table_month_back() {
+
+    alert($('#summary_table_month'));
+
+}

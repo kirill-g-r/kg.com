@@ -1,5 +1,23 @@
 <section>
-    <h4>SUMMARY TABLE</h4>
+    <div class="row">
+        <div class="9u 12u$(medium)">
+            <h4>SUMMARY TABLE</h4>
+        </div>
+        <div class="3u 12u$(medium)">
+            <a style="cursor:pointer;" onclick="summary_table_month_back('back');"><-</a>
+            <a id="summary_table_month" > <?php echo $data['summary_table_month']['name']; ?> </a>
+            <a style="cursor:pointer;" onclick="summary_table_month_foward('foward');">-></a>
+        </div>
+    </div>
+<!--
+    <ul class="actions">
+        <li><a href="#" class="button special icon fa-download">Icon</a></li>
+        jkhkjh
+        <li><a href="#" class="button icon fa-download">Icon</a></li>
+    </ul>
+
+   -->
+
 </section>
 
 <br/>
@@ -12,9 +30,9 @@
             <tr>
                 <th>Category</th>
                 <th>Name</th>
+                <th>Timestamp</th>
                 <th>Coast</th>
                 <th>Currency</th>
-                <th>Timestamp</th>
             </tr>
             </thead>
             <tbody>
@@ -22,7 +40,7 @@
 
             foreach ($data['summary_table'] as $d) {
 
-                echo '<tr><td>'.$d['category'].'</td><td>'.$d['name'].'</td><td>'.$d['coast'].'</td><td>'.$d['currency'].'</td><td>'.$d['time'].'</td><td style="text-align:center; cursor:pointer;" onclick="delete_charge_from_summary_table('.$d['id'].');" class="icon fa-trash"></td></tr>';
+                echo '<tr><td>'.$d['category'].'</td><td>'.$d['name'].'</td><td>'.$d['time'].'</td><td>'.$d['coast'].'</td><td>'.$d['currency'].'</td><td style="text-align:center; cursor:pointer;" onclick="delete_charge_from_summary_table('.$d['id'].');" class="icon fa-trash"></td></tr>';
 
             }
 
@@ -31,7 +49,7 @@
             <tfoot>
             <tr>
 
-                <td colspan="2"><b>Total sum:</b></td>
+                <td colspan="3"><b>Total sum:</b></td>
                 <td><b>
                         <?php echo $data['total_sum'];  ?>
                     </b>
