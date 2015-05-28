@@ -51,7 +51,7 @@ class Login {
 	
 				} else {
 	
-					echo 'Неверный логин или пароль form!';
+////					echo 'Неверный логин или пароль form!!';
 					header('Location:/login');
 					exit;
 						
@@ -86,7 +86,7 @@ class Login {
 	
 				} else {
 	
-					echo 'Неверный логин или пароль session!';
+////					echo 'Неверный логин или пароль session!';
 					header('Location:/login');
 					exit;
 	

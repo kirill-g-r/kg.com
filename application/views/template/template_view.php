@@ -33,6 +33,7 @@
                             <!--                            <li><a href="generic.html">Generic</a></li>
                                                         <li><a href="elements.html">Elements</a></li>
                             -->
+                            <li><a href="/profile">Profile</a></li>
                             <li><a href="/exit">Log Out</a></li>
                         </ul>
                     </div>
