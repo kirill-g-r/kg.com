@@ -43,6 +43,8 @@ class Login {
 	
 					$_SESSION['username'] = $user_info['username'];
 					$_SESSION['password'] = $user_info['password'];
+					$_SESSION['email'] = $user_info['email'];
+					$_SESSION['user_id']  = $user_info['id'];
 	
 					//header('Location:/' . $this->getRequestURI());
 					//exit();
@@ -76,6 +78,8 @@ class Login {
 										
 					$_SESSION['username'] = $user_info['username'];
 					$_SESSION['password'] = $user_info['password'];
+					$_SESSION['email'] = $user_info['email'];
+					$_SESSION['user_id']  = $user_info['id'];
 						
 					//unset($this->model);
 	

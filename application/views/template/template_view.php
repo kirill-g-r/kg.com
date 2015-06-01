@@ -84,6 +84,7 @@
 <script src="js/init.js"></script>
 
 <script src="js/pages/charges/charges.js"></script>
+<script src="js/pages/profile/profile.js"></script>
 
 </body>
 </html>

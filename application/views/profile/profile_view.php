@@ -1,40 +1,46 @@
 <section>
     <h4>PROFILE</h4>
 
-
-
     <div class="row uniform">
 
-        <div class="2u 12u$(xsmall)">
-            <img src="images/pic04.jpg" alt="" />
+        <div class="1u 12u$(xsmall)" >
+            <img width="180px" src="<?php echo $data['avatar_image']; ?>" alt="" />
+            <ul class="actions">
+                <li><input type="button" value="upload" class="button" onclick="alert('release later');"/></li>
+            </ul>
+
         </div>
         <div class="row uniform">
-            <div class="4u 12u$(xsmall)">
+            <div class="2u 12u$(xsmall) ">
+
+            </div>
+            <div class="10u 12u$(xsmall) ">
                 <h5>Username:</h5>
+                <input type="text" name="profile_username" id="profile_username" value="<?php echo $data['username']; ?>" placeholder="Your Name" required />
             </div>
-            <div class="8u$ 12u$(xsmall)">
-                <input type="text" name="add_charge_coast" id="add_charge_coast" value="" placeholder="Gosha" required />
+
+            <div class="2u 12u$(xsmall) ">
+
             </div>
-            <div class="4u 12u$(xsmall)">
+            <div class="10u 12u$(xsmall)">
                 <h5>Password:</h5>
+                <input type="text" name="profile_password" id="profile_password" value="<?php echo $data['password']; ?>" placeholder="Your Password" required />
             </div>
-            <div class="8u$ 12u$(xsmall)">
-                <input type="text" name="add_charge_coast" id="add_charge_coast" value="" placeholder="***" required />
+            <div class="2u 12u$(xsmall) ">
+
             </div>
-            <div class="4u 12u$(xsmall)">
+            <div class="10u$ 12u$(xsmall)">
                 <h5>Email:</h5>
+                <input type="text" name="profile_email" id="profile_email" value="<?php echo $data['email']; ?>" placeholder="Your Email" required />
+                </BR>
+                <ul class="actions">
+                    <li><input type="button" value="update profile" class="special" onclick="updateProfile();"/></li>
+                </ul>
             </div>
-            <div class="8u$ 12u$(xsmall)">
-                <input type="text" name="add_charge_coast" id="add_charge_coast" value="" placeholder="Goryunov.K@mail.ru" required />
-            </div>
+
         </div>
-
-        <p>
-
-            Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus o, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien. Morbi mattis mi consectetur tortor elementum, varius pellentesque velit convallis. Aenean tincidunt lectus auctor mauris maximus, ac scelerisque ipsum tempor. Duis vulputate ex et ex tincidunt, quis lacinia velit aliquet. Duis non efficitur nisi, id malesuada justo. Maecenas sagittis felis ac sagittis semper. Curabitur purus leo, tempus sed finibus eget, fringilla quis risus. Maecenas et lorem quis sem varius sagittis et a est. Maecenas iaculis iaculis sem. Donec vel dolor at arcu tincidunt bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce ut aliquet justo. Donec id neque ipsum. Integer eget ultricies odio. Nam vel ex a orci fringilla tincidunt. Aliquam eleifend ligula non velit accumsan cursus. Etiam ut gravida sapien.</p>
-
-        </p>
-
+        <div class="10u$ 12u$(xsmall)">
+        </div>
 
     </div>
 
