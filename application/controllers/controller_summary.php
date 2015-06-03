@@ -30,37 +30,15 @@ class Controller_Summary extends Controller
     function load_page() {
 
         $this->checkUserAccess();
+
+        $this->model->data['user_id'] = $_SESSION['user_id'];
+
         $data = $this->model->get_data();
 
         $this->view->generate('summary_view.php', 'template_view.php', $data);
 
     }
 
-    function addcharge() {
-
-        $this->checkUserAccess();
-
-        $this->model->addcharge( $this->parse_new_charge() );
-        $data = $this->model->get_data();
-        $this->view->generate('', 'summary_view.php', $data);
-
-    }
-    function parse_new_charge() {
-
-        $charge['name'] =       $_POST['add_charge_name'];
-        $charge['coast'] =      $_POST['add_charge_coast'];
-        $charge['currency'] =   $_POST['add_charge_currency'];
-        $charge['category'] =   $_POST['add_charge_category'];
-
-        foreach ($charge as $key => $ch) {
-
-            $charge[$key] = trim(htmlspecialchars(stripcslashes($ch)));
-
-        }
-
-        return $charge;
-
-    }
     function delete_charge_from_summary_table_get_id() {
 
         if (isset($_POST['action'])
@@ -78,6 +56,8 @@ class Controller_Summary extends Controller
     function delete_charge_from_summary_table() {
 
         $this->checkUserAccess();
+
+        $this->model->data['user_id'] = $_SESSION['user_id'];
 
         $this->model->delete_charge_from_summary_table($this->delete_charge_from_summary_table_get_id());
         $data = $this->model->get_data();

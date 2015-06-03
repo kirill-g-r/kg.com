@@ -30,6 +30,9 @@ class Controller_Charges extends Controller
     function load_page() {
 
         $this->checkUserAccess();
+
+        $this->model->data['user_id'] = $_SESSION['user_id'];
+
         $data = $this->model->get_data();
 
         $this->view->generate('charges_view.php', 'template_view.php', $data);
@@ -51,6 +54,8 @@ class Controller_Charges extends Controller
         $charge['coast'] =      $_POST['add_charge_coast'];
         $charge['currency'] =   $_POST['add_charge_currency'];
         $charge['category'] =   $_POST['add_charge_category'];
+
+        $charge['user_id'] =    $_SESSION['user_id'];
 
         foreach ($charge as $key => $ch) {
 

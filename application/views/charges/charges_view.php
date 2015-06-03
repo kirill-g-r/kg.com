@@ -21,10 +21,10 @@
                 <div class="select-wrapper">
                     <select name="add_charge_category" id="add_charge_category" required >
                         <option value="">- Category -</option>
-                        <option value="Transport">Transport</option>
-                        <option value="Food">Food</option>
-                        <option value="Fees">Fees</option>
-                        <option value="Other">Other</option>
+                        <option value="1">Transport</option>
+                        <option value="2">Food</option>
+                        <option value="3">Fees</option>
+                        <option value="4">Other</option>
                     </select>
                 </div>
             </div>

@@ -7,7 +7,7 @@ class Model_Charges extends Model
 
 	public function addcharge( $new_charge = false ) {
 
-		return $this->dbConnect->query( "INSERT INTO `charges` (`name`, `coast`, `currency`, `category`) VALUES ('".$new_charge['name']."', '".$new_charge['coast']."', '".$new_charge['currency']."', '".$new_charge['category']."') ;" );
+		return $this->dbConnect->query( "INSERT INTO `charges` (`id_user`, `name`, `coast`, `currency`, `id_category`) VALUES (".$new_charge['user_id'].", '".$new_charge['name']."', '".$new_charge['coast']."', '".$new_charge['currency']."', '".$new_charge['category']."') ;" );
 
 	}
 
@@ -47,12 +47,12 @@ class Model_Charges extends Model
 
 	public function get_summary_table_data() {
 
-		return $this->dbConnect->query( 'SELECT * FROM `charges` ORDER BY `time` DESC;' )->fetchAll();
+		return $this->dbConnect->query( 'SELECT c.*, cc.`name` AS `category` FROM `charges` c JOIN `charges_category` cc ON c.id_category = cc.id WHERE c.`id_user` = '.$this->data['user_id'].'  ORDER BY `time` DESC;' )->fetchAll();
 
 	}
 	public function get_category_summary_table_data() {
 
-		return $this->dbConnect->query( 'SELECT category, sum(coast) as `sum`, currency, count(id) as `payments_count`, max(`time`) as `last_payment` FROM `charges` GROUP BY `category` ORDER BY `sum` DESC;' )->fetchAll();
+		return $this->dbConnect->query( 'SELECT c.`id_category`, cc.`name` AS `category`, sum(c.`coast`) as `sum`, c.`currency`, count(c.`id`) as `payments_count`, max(c.`time`) as `last_payment` FROM `charges` c JOIN `charges_category` cc ON c.`id_category` = cc.`id` WHERE c.`id_user` = '.$this->data['user_id'].' GROUP BY c.`id_category` ORDER BY `sum` DESC;' )->fetchAll();
 
 	}
 

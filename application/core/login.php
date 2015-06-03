@@ -142,7 +142,7 @@ class Login {
 			exit('Hacking attamp!');
 	
 		}
-			
+
 		$username = stripslashes($username);
 		$username = htmlspecialchars($username);
 		$username = trim($username);
