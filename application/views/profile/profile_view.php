@@ -6,7 +6,7 @@
         <div class="1u 12u$(xsmall)" >
             <img width="180px" src="<?php echo $data['avatar_image']; ?>" alt="" />
             <ul class="actions">
-                <li><input type="button" value="upload" class="button" onclick="alert('release later');"/></li>
+                <li><input type="button" value="upload" class="button" disabled onclick="alert('release later');"/></li>
             </ul>
 
         </div>

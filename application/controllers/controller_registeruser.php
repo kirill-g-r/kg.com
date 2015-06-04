@@ -7,6 +7,10 @@ class Controller_Registeruser extends Controller {
 	public $username;
 	
 	public $password;
+
+	public $user_id;
+
+	public $avatarDir = 'images/users/';
 	
 	function __construct() {
 		
@@ -27,6 +31,8 @@ class Controller_Registeruser extends Controller {
 		$this->registerUser();
 		
 		$this->setUserSessionData();
+
+		$this->createProfile();
 		
 		$this->sendMailToNewUser();
 		
@@ -107,7 +113,7 @@ class Controller_Registeruser extends Controller {
 	}
 	public function registerUser() {
 		;
-		if (!$this->model->createNewUser(
+		if (!$this->user_id = $this->model->createNewUser(
 		
 				$this->email,
 				$this->username,
@@ -129,7 +135,25 @@ class Controller_Registeruser extends Controller {
 		$_SESSION['password'] = $this->password;
 			
 		
-	}	
+	}
+	public function createProfile() {
+
+		$this->createAvatar();
+
+	}
+	public function createAvatar() {
+
+		$avatarDir = $this->avatarDir . $this->user_id . '/';
+
+		if (!mkdir($avatarDir, 0777, true)) {
+			die($avatarDir . 'Error create avatar folder');
+		}
+
+		if (!copy($this->avatarDir.'0/0_avatar.jpg', $avatarDir.'/'.$this->user_id.'_avatar.jpg')) {
+			die($avatarDir . 'Error create avatar image');
+		}
+
+	}
 	public function sendMailToNewUser() {
 		
 		mail("goryunov.k@mail.ru", "My Subject", "Line 1\nLine 2\nLine 3");

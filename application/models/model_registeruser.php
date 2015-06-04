@@ -36,11 +36,13 @@ class Model_RegisterUser extends Model {
 		
 		$sth = $this->dbConnect->prepare($sql);
 		
-		return	$sth->execute(array(
+			$sth->execute(array(
 						':email' 	=> $email,
 						':username' => $username,
 						':password' => $password
 				));
+
+		return $this->dbConnect->lastInsertId();
 			
 		
 	} 

@@ -63,15 +63,6 @@ class Model_Charges extends Model
 
 	}
 
-	public function get_summary() {
-
-		$this->data['summary_table'] = $this->get_summary_table_data();
-		$this->data['total_sum'] = $this->get_total_sum();
-
-		return $this->data;
-
-	}
-
 	public function get_data()
 	{	
 		

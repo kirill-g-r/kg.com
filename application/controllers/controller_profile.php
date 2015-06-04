@@ -28,7 +28,7 @@ class Controller_Profile extends Controller
 
     function update_profile() {
 
-        echo '<div id="xxx">123</div>';
+        echo '<div id="xxx">Release later</div>';
 
     }
 

@@ -42,12 +42,7 @@ MAIN CONTENT
         <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
         <br>
         <input type="password" name="password" class="form-control" placeholder="Password" required >
-        <label class="checkbox">
-		                <span class="pull-right">
-		                    <a data-toggle="modal" href=""> Forgot Password?</a>
-
-		                </span>
-        </label>
+        <br>
         <button class="btn btn-theme btn-block" href="" type="submit" onsubmit=""><i class="fa fa-lock"></i> SIGN UP</button>
         <hr>
 
@@ -56,14 +51,7 @@ MAIN CONTENT
                     <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
                     <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>   -->
         </div>
-        <div class="registration">
-          Registration<br/>
 
-          <a class="" href="#">
-            Create an account<br/>
-          </a>
-
-        </div>
         <div class="registration">
           Home Page<br/>
 
