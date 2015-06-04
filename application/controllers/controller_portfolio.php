@@ -11,7 +11,7 @@ class Controller_Portfolio extends Controller
 	
 	function action_index()
 	{		
-		$this->checkUserAccess();
+		//$this->checkUserAccess();
 		$data = $this->model->get_data();
 		$this->view->generate('portfolio_view.php', 'template_view.php', $data);
 	}

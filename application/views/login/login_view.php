@@ -57,7 +57,7 @@ MAIN CONTENT
         <div class="registration">
           Registration<br/>
 
-          <a class="" href="#">
+          <a class="" href="/registration">
             Create an account<br/>
           </a>
 
