@@ -4,9 +4,9 @@
             <h4>SUMMARY TABLE</h4>
         </div>
         <div class="3u 12u$(medium)">
-            <a style="cursor:pointer;" onclick="summary_table_month_back('back');"><-</a>
-            <a id="summary_table_month" > <?php echo $data['summary_table_month']['name']; ?> </a>
-            <a style="cursor:pointer;" onclick="summary_table_month_foward('foward');">-></a>
+            <a style="cursor:pointer;" onclick="summary_table_page_change('back');"><-</a>
+            <a id="summary_table_page" value="<?php echo $data['summary_table_page']['value']; ?>"  > PAGE <?php echo $data['summary_table_page']['value']; ?> OF <?php echo $data['summary_table_page']['value']; ?> </a>
+            <a style="cursor:pointer;" onclick="summary_table_page_change('foward');">-></a>
         </div>
     </div>
 <!--

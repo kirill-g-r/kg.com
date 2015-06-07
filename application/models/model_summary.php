@@ -4,6 +4,8 @@ class Model_Summary extends Model
 {
 
 	public $data;
+	public $requested_page;
+	public $selected_range;
 
 	public function get_coast_in_RUB($data) {
 
@@ -45,14 +47,32 @@ class Model_Summary extends Model
 
 	}
 
+	public function get_summary_table_data_page() {
+
+		if (isset($this->selected_range)) {
+
+			$sql = 'SELECT	c.*,
+							cc.`name` as `category`
+					FROM `charges` c
+					JOIN `charges_category` cc
+					ON c.`id_category` = cc.`id`
+					WHERE c.`id_user` = ' . $this->data['user_id'] . '
+					ORDER BY c.`time` DESC
+					LIMIT ' . $this->selected_range['from'] . ',' . $this->selected_range['count'] . ';';
+
+			return $this->dbConnect->query($sql)->fetchAll();
+
+		}
+
+	}
+
 	public function delete_charge_from_summary_table($id) {
 
 		return $this->dbConnect->query( 'DELETE FROM `charges` WHERE id = '.$id.' ;' );
 
 	}
 
-	public function get_data()
-	{	
+	public function get_data_OLD()	{
 		
 		// Здесь мы просто сэмулируем реальные данные.
 
@@ -60,8 +80,21 @@ class Model_Summary extends Model
 
 		$this->data['total_sum'] = $this->get_total_sum();
 
-		$this->data['summary_table_month']['name'] = date('F');
-		$this->data['summary_table_month']['value'] = '04';
+		$this->data['summary_table_page']['name'] = $this->requested_page;
+		$this->data['summary_table_page']['value'] = $this->requested_page;
+
+		return $this->data;
+
+
+	}
+
+	public function get_data()	{
+
+		$this->data['summary_table'] = $this->get_summary_table_data_page();
+
+		$this->data['total_sum'] = $this->get_total_sum();
+
+		$this->data['summary_table_page']['value'] = $this->requested_page;
 
 		return $this->data;
 

@@ -20,32 +20,3 @@ function addNewCharge() {
 
 
 }
-
-function delete_charge_from_summary_table(id_charge_dor_delete) {
-
-    if (confirm('The record will be deleted. Continue?')) {
-
-        $.ajax({
-            type: "POST",
-            url: "summary",
-            data: {
-                type_request: 'ajax_request',
-                action: 'delete_charge_from_summary_table',
-                delete_charge_from_summary_table_id: id_charge_dor_delete
-            },
-            success: function (data) {
-
-                $('#template_main_container').html('').html(data);
-
-            }
-        });
-
-    }
-
-}
-
-function summary_table_month_back() {
-
-    alert($('#summary_table_month'));
-
-}
