@@ -1,0 +1,11 @@
+1)  Summary Table - total SUM
+2)  Charges Page - top menu not fixed
+3)  Charges Page - on mobil phone buttons failed
+4)  Update Currency by Central Bank
+5)  Summary Table - PAGE OF ???
+6)  Summary Table - PAGE OF BUTTONS
+7)  Profile - upload image
+8)  Settings - add Category
+9)  Settings - set email statistics
+10) Settings - email statistics
+11) Registration - Welcome Email
