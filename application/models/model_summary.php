@@ -95,9 +95,28 @@ class Model_Summary extends Model
 		$this->data['total_sum'] = $this->get_total_sum();
 
 		$this->data['summary_table_page']['value'] = $this->requested_page;
+		$this->data['summary_table_page']['count'] = $this->get_page_count();
 
 		return $this->data;
 
+
+	}
+
+	public function get_page_count() {
+
+		$sql = 'SELECT	count(c.id) as `count`
+					FROM `charges` c
+					WHERE c.`id_user` = 1';
+
+		$result = $this->dbConnect->query($sql)->fetch();
+
+		return ceil($result['count'] / 10 );
+
+
+
+
+
+//		return $this->dbConnect->query($sql)->fetchAll();
 
 	}
 

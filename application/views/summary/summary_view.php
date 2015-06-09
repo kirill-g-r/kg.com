@@ -5,7 +5,7 @@
         </div>
         <div class="3u 12u$(medium)">
             <a style="cursor:pointer;" onclick="summary_table_page_change('back');"><-</a>
-            <a id="summary_table_page" value="<?php echo $data['summary_table_page']['value']; ?>"  > PAGE <?php echo $data['summary_table_page']['value']; ?> OF <?php echo $data['summary_table_page']['value']; ?> </a>
+            <a id="summary_table_page" value="<?php echo $data['summary_table_page']['value']; ?>"  > PAGE <?php echo $data['summary_table_page']['value']; ?> OF <?php echo $data['summary_table_page']['count']; ?> </a>
             <a style="cursor:pointer;" onclick="summary_table_page_change('foward');">-></a>
         </div>
     </div>
