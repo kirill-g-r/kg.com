@@ -4,7 +4,8 @@ class Model_Summary extends Model
 {
 
 	public $data;
-	public $requested_page;
+	public $requested_page = 1;
+	public $requested_page_count = 1;
 	public $selected_range;
 
 	public function get_coast_in_RUB($data) {
@@ -37,7 +38,7 @@ class Model_Summary extends Model
 
 		}
 
-		return $total_sum;
+		return round($total_sum, 2);
 
 	}
 
@@ -95,7 +96,7 @@ class Model_Summary extends Model
 		$this->data['total_sum'] = $this->get_total_sum();
 
 		$this->data['summary_table_page']['value'] = $this->requested_page;
-		$this->data['summary_table_page']['count'] = $this->get_page_count();
+		$this->data['summary_table_page']['count'] = $this->requested_page_count;
 
 		return $this->data;
 
@@ -106,11 +107,11 @@ class Model_Summary extends Model
 
 		$sql = 'SELECT	count(c.id) as `count`
 					FROM `charges` c
-					WHERE c.`id_user` = 1';
+					WHERE c.`id_user` = ' . $this->data['user_id'] . '';
 
 		$result = $this->dbConnect->query($sql)->fetch();
 
-		return ceil($result['count'] / 10 );
+		return $this->requested_page_count = ceil($result['count'] / 10 );
 
 
 

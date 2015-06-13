@@ -18,7 +18,7 @@ class Controller {
 
 	public function getConfig() {
 
-		return $this->config = parse_ini_file('.configuration.ini', true);
+		//return $this->config = parse_ini_file('configurations/.configuration.ini', true);
 
 	}
 	

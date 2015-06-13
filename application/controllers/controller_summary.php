@@ -17,6 +17,8 @@ class Controller_Summary extends Controller
 
         $this->get_user_id();
 
+        $this->model->get_page_count();
+
         $this->get_requested_summary_page();
 
         if ($ajax_action = $this->ajax_request()) {
@@ -79,7 +81,9 @@ class Controller_Summary extends Controller
 
     public function get_requested_summary_page() {
 
-        if (isset($_POST['summary_table_requested_page']) && $_POST['summary_table_requested_page']) {
+        if (isset($_POST['summary_table_requested_page'])
+            && $_POST['summary_table_requested_page']
+            && $_POST['summary_table_requested_page'] <= $this->model->requested_page_count) {
 
             $this->model->requested_page = $_POST['summary_table_requested_page'];
 

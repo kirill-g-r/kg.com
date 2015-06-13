@@ -1,7 +1,6 @@
 <?php
 
-class Model_Charges extends Model
-{
+class Model_Charges extends Model {
 
 	public $data;
 
@@ -41,7 +40,7 @@ class Model_Charges extends Model
 
 		}
 
-		return $total_sum;
+		return round($total_sum, 2);
 
 	}
 
@@ -53,7 +52,30 @@ class Model_Charges extends Model
 	}
 	public function get_category_summary_table_data() {
 
-		return $this->dbConnect->query( 'SELECT c.`id_category`, cc.`name` AS `category`, sum(c.`coast`) as `sum`, c.`currency`, count(c.`id`) as `payments_count`, max(c.`time`) as `last_payment` FROM `charges` c JOIN `charges_category` cc ON c.`id_category` = cc.`id` WHERE c.`id_user` = '.$this->data['user_id'].' GROUP BY c.`id_category` ORDER BY `sum` DESC;' )->fetchAll();
+		global $config;
+
+		$sql = 'SELECT	c.`id_category`,
+						cc.`name` AS `category`,
+						ROUND(
+							SUM(
+								IF((c.`currency` = "USD"),
+									(c.`coast`* "'.$config['currency_rate']['RUB_USD'].'"),
+									IF((c.`currency` = "EUR"),
+										(c.`coast`* " '.$config['currency_rate']['RUB_EUR'].' "),
+										(c.`coast`))))
+							 , 2)
+						AS `sum`,
+						"RUB" as `currency`,
+						COUNT(c.`id`) AS `payments_count`,
+						MAX(c.`time`) AS `last_payment`
+				FROM `charges` c
+				JOIN `charges_category` cc
+				ON c.`id_category` = cc.`id`
+				WHERE c.`id_user` = '.$this->data['user_id'].'
+				GROUP BY c.`id_category`
+				ORDER BY `sum` DESC;';
+
+		return $this->dbConnect->query( $sql )->fetchAll();
 
 	}
 
@@ -65,8 +87,6 @@ class Model_Charges extends Model
 
 	public function get_data()
 	{	
-		
-		// Здесь мы просто сэмулируем реальные данные.
 
 		$this->data['summary_table'] = $this->get_summary_table_data();
 
@@ -76,60 +96,6 @@ class Model_Charges extends Model
 
 		return $this->data;
 
-
-
-		
-		return array(
-			
-			array(
-				'Year' => '2012',
-				'Site' => 'http://DunkelBeer.ru',
-				'Description' => 'Промо-сайт темного пива Dunkel от немецкого производителя Löwenbraü выпускаемого в России пивоваренной компанией "CАН ИнБев".'
-			),
-
-			array(
-				'Year' => '2012',
-				'Site' => 'http://ZopoMobile.ru',
-				'Description' => 'Русскоязычный каталог китайских телефонов компании Zopo на базе Android OS и аксессуаров к ним.'
-			),
-
-			array(
-				'Year' => '2012',
-				'Site' => 'http://GeekWear.ru',
-				'Description' => 'Интернет-магазин брендовой одежды для гиков.'
-			),
-
-			array(
-				'Year' => '2011',
-				'Site' => 'http://РоналВарвар.рф',
-				'Description' => 'Промо-сайт мультфильма "Ронал-варвар" от норвежских режиссеров. Мультфильм о самом нетипичном варваре на Земле, переполненный интересными приключениями и забавными ситуациями.'
-			),
-
-			array(
-				'Year' => '2011',
-				'Site' => 'http://TompsonTatoo.ru',
-				'Description' => 'Персональный сайт-блог художника-татуировщика Алексея Томпсона из Санкт-Петербурга.'
-			),
-
-			array(
-				'Year' => '2011',
-				'Site' => 'http://DaftState.ru',
-				'Description' => 'Страничка музыкальных и сануд продюсеров из команды "DaftState", работающих в стилях BreakBeat и BigBeat.'
-			),
-
-			array(
-				'Year' => '2011',
-				'Site' => 'http://TiltPeople.ru',
-				'Description' => 'Сайт сообщества фотографов в стиле Tilt Shif.'
-			),
-
-			array(
-				'Year' => '2011',
-				'Site' => 'http://AbsurdGames.ru',
-				'Description' => 'Страничка российской команды разработчиков независимых игр с необычной физикой и сюрреалистической графикой.'
-			),
-
-		);
 	}
 
 }

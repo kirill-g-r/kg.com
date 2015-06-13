@@ -1,7 +1,7 @@
 1)  Summary Table - total SUM
 2)  Charges Page - top menu not fixed
 3)  Charges Page - on mobil phone buttons failed
-4)  Update Currency by Central Bank
+4)  CRON UPDATE FAIL update_currency_rate
 5)  Summary Table - PAGE OF ???
 6)  Summary Table - PAGE OF BUTTONS
 7)  Profile - upload image
