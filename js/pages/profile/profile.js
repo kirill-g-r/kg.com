@@ -17,5 +17,22 @@ function updateProfile() {
         }
     });
 
+}
+
+function uploadAvatar() {
+
+    $.ajax({
+        type: "POST",
+        url: "profile",
+        data: { type_request:'ajax_request',
+            action: 'upload_avatar'
+//            profile_email:          $("#profile_email").val()
+        },
+        success: function(data){
+
+            $('#template_main_container').html('').html(data);
+
+        }
+    });
 
 }

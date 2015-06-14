@@ -85,6 +85,12 @@ class Model_Charges extends Model {
 
 	}
 
+	public function get_category_list() {
+
+		return $this->dbConnect->query( 'SELECT DISTINCT `name` as `category`, `id` FROM `charges_category` ORDER BY `name`;' )->fetchAll();
+
+	}
+
 	public function get_data()
 	{	
 
@@ -93,6 +99,8 @@ class Model_Charges extends Model {
 		$this->data['category_summary_table'] = $this->get_category_summary_table_data();
 
 		$this->data['total_sum'] = $this->get_total_sum();
+
+		$this->data['charges_category_list'] = $this->get_category_list();
 
 		return $this->data;
 

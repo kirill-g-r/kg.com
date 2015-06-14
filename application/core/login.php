@@ -4,10 +4,6 @@ class Login {
 	
 	public $dbConnect;
 	
-	public static function checkFunc() {
-		echo '!!!';
-	}
-	
 	public static function checkAccess() {
 		session_start();
 //		print_r($_SESSION);
@@ -54,6 +50,7 @@ class Login {
 				} else {
 	
 ////					echo 'Неверный логин или пароль form!!';
+
 					header('Location:/login');
 					exit;
 						

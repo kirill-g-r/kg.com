@@ -37,7 +37,7 @@ function delete_charge_from_summary_table(id_charge_dor_delete) {
                 type_request: 'ajax_request',
                 action: 'delete_charge_from_summary_table',
                 delete_charge_from_summary_table_id: id_charge_dor_delete,
-                summary_table_requested_page:         requested_page
+                summary_table_requested_page:         parseInt($('#summary_table_page').attr('value'))
             },
             success: function (data) {
 

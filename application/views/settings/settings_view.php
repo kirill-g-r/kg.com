@@ -1,45 +1,13 @@
 <section>
-    <h4>CHARGES</h4>
-    <form method="post" action="#" onsubmit="addNewCharge()" ">
+    <h4>SETTINGS</h4>
+    </BR>
+    <h5>Your category list:</h5>
+    </BR>
+
+    <form method="post" action="#" onsubmit="addNewCategory()" ">
         <div class="row uniform">
-            <div class="6u 12u$(xsmall)">
-                <input type="text" name="add_charge_name" id="add_charge_name" value="" placeholder="Name" required autofocus />
-            </div>
-            <div class="4u 12u$(xsmall)">
-                <input type="text" name="add_charge_coast" id="add_charge_coast" value="" placeholder="Coast" required />
-            </div>
-            <div class="2u$ 12u$(xsmall)">
-                <div class="select-wrapper">
-                    <select name="add_charge_currency" id="add_charge_currency">
-                        <option value="RUB" selected >RUB</option>
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                    </select>
-                </div>
-            </div>
             <div class="12u$">
-                <div class="select-wrapper">
-                    <select name="add_charge_category" id="add_charge_category" required >
-
-                        <option value="">- Category -</option>
-
-                        <?php
-
-                            foreach ($data['charges_category_list'] as $category) {
-
-                                echo '<option value="'.$category['id'].'">'.$category['category'].'</option>';
-
-                            }
-
-                        ?>
-<!--
-                        <option value="1">Transport</option>
-                        <option value="2">Food</option>
-                        <option value="3">Fees</option>
-                        <option value="4">Other</option>
--->
-                    </select>
-                </div>
+                <input type="text" name="add_new_category_name" id="add_new_category_name" value="" placeholder="Category Name" required autofocus />
             </div>
             <!--
                                         <div class="4u 12u$(small)">
@@ -80,41 +48,27 @@
 
 <section>
 
-    <h5>Category summary table</h5>
+    <h5>Category List</h5>
 
     <div class="table-wrapper">
         <table class="alt" >
             <thead>
             <tr>
                 <th>Category</th>
-                <th>Sum</th>
-                <th>Currency</th>
-                <th>Payments count</th>
-                <th>Last payment</th>
+                <th>Category ID</th>
             </tr>
             </thead>
             <tbody>
             <?php
 
-            foreach ($data['category_summary_table'] as $d) {
+            foreach ($data['category_list'] as $d) {
 
-                echo '<tr><td>'.$d['category'].'</td><td>'.$d['sum'].'</td><td>'.$d['currency'].'</td><td>'.$d['payments_count'].'</td><td>'.$d['last_payment'].'</td></tr>';
+                echo '<tr><td>'.$d['category'].'</td><td>'.$d['id'].'</td></tr>';
 
             }
 
             ?>
             </tbody>
-            <tfoot>
-            <tr>
-
-                <td colspan="2"><b>Total sum:</b></td>
-                <td><b>
-                        <?php echo $data['total_sum'];  ?>
-                    </b>
-                </td>
-                <td><b>RUB</b></td>
-            </tr>
-            </tfoot>
         </table>
     </div>
 

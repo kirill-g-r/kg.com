@@ -34,6 +34,8 @@
                                                         <li><a href="elements.html">Elements</a></li>
                             -->
                             <li><a href="/profile">Profile</a></li>
+                            <li><a href="/settings">Settings</a></li>
+                            <li><a href="/about">About</a></li>
                             <li><a href="/exit">Log Out</a></li>
                         </ul>
                     </div>
@@ -83,9 +85,21 @@
 <script src="js/skel.min.js"></script>
 <script src="js/init.js"></script>
 
+<?php
+
+    foreach ($data['scripts'] as $script) {
+
+        echo '<script src="js/pages/'.$script.'/'.$script.'.js"></script>';
+
+    }
+
+?>
+
+<!--
 <script src="js/pages/charges/charges.js"></script>
 <script src="js/pages/summary/summary.js"></script>
 <script src="js/pages/profile/profile.js"></script>
+-->
 
 </body>
 </html>
