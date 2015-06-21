@@ -32,54 +32,28 @@ class Controller_About extends Controller
 
     }
 
-    function addcharge() {
+    function about_send_mail() {
 
         $this->checkUserAccess();
 
-        $this->model->data['user_id'] = $_SESSION['user_id'];
+        $this->about_parse_and_send();
 
-        $this->model->addcharge( $this->parse_new_charge() );
-        $data = $this->model->get_data();
-        $this->view->generate('', 'charges_view.php', $data);
+        $this->view->generate('', 'about_view.php');
 
     }
-    function parse_new_charge() {
+    function about_parse_and_send() {
 
-        $charge['name'] =       $_POST['add_charge_name'];
-        $charge['coast'] =      $_POST['add_charge_coast'];
-        $charge['currency'] =   $_POST['add_charge_currency'];
-        $charge['category'] =   $_POST['add_charge_category'];
+        $to         = $_POST['about_send_mail_name'];
+        $subject    = $_POST['about_send_mail_name'];
+        $message    = $_POST['about_send_mail_message'];
 
-        foreach ($charge as $key => $ch) {
+        if (empty($message)) {
 
-            $charge[$key] = trim(htmlspecialchars(stripcslashes($ch)));
+            $message = 'EMPTY MESSAGE';
 
         }
 
-        return $charge;
-
-    }
-    function delete_charge_from_summary_table_get_id() {
-
-        if (isset($_POST['action'])
-            && $_POST['action'] == 'delete_charge_from_summary_table'
-            && isset($_POST['delete_charge_from_summary_table_id'])
-            && $_POST['delete_charge_from_summary_table_id']) {
-
-            return $_POST['delete_charge_from_summary_table_id'];
-
-        }
-
-        return false;
-
-    }
-    function delete_charge_from_summary_table() {
-
-        $this->checkUserAccess();
-
-        $this->model->delete_charge_from_summary_table($this->delete_charge_from_summary_table_get_id());
-        $data = $this->model->get_data();
-        $this->view->generate('', 'charges_view.php', $data);
+        mail("goryunov.k@mail.ru", "ABOUT_SEND_MAIL", $message);
 
     }
 

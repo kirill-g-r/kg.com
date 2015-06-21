@@ -10,7 +10,7 @@ class Login {
 //		print_r("/n" . '!!');
 //		print_r($_POST);
 
-		if (!Login::loginUserBySessionData()) {
+		if (!Login::loginUserByCookieData()) {
 	
 			if (!Login::loginUserByFormData()) {
 	
@@ -37,14 +37,18 @@ class Login {
 	
 				if ($user_info = Login::check_user_existence($username, $password)) {								
 	
-					$_SESSION['username'] = $user_info['username'];
-					$_SESSION['password'] = $user_info['password'];
+#					$_SESSION['username'] = $user_info['username'];
+#					$_SESSION['password'] = $user_info['password'];
 					$_SESSION['email'] = $user_info['email'];
 					$_SESSION['user_id']  = $user_info['id'];
-	
+
+					setcookie("username", $user_info['username']);
+					setcookie("password", $user_info['password']);
+
 					//header('Location:/' . $this->getRequestURI());
 					//exit();
 //					echo 'OK_loginUserByFormData';
+
 					return true;
 	
 				} else {
@@ -100,6 +104,48 @@ class Login {
 		return false;
 	
 	}
+
+	public function loginUserByCookieData() {
+
+		if (isset($_COOKIE['username']) && isset($_COOKIE['password'])) {
+
+			if (list($username, $password) = Login::checkCookieUserData()) {
+
+				//$this->model = new Model_Login();
+
+				if ($user_info = Login::check_user_existence($username, $password)) {
+
+#					$_SESSION['username'] = $user_info['username'];
+#					$_SESSION['password'] = $user_info['password'];
+					$_SESSION['email'] = $user_info['email'];
+					$_SESSION['user_id']  = $user_info['id'];
+
+					//unset($this->model);
+
+					//header('Location:' . $this->getRequestURI());
+					//exit();
+//					echo 'OK_loginUserBySessionData';
+					return true;
+
+				} else {
+
+////					echo 'Неверный логин или пароль session!';
+
+					setcookie("username");
+					setcookie("password");
+
+					header('Location:/login');
+					exit;
+
+				}
+
+			}
+
+		}
+
+		return false;
+
+	}
 	
 	public function checkFormInputUserData() {
 	
@@ -108,7 +154,7 @@ class Login {
 			
 		if (empty($username) || empty($password)) {
 	
-			exit('Hacking attamp!');
+			exit('Hacking attamp 1!');
 	
 		}
 			
@@ -122,7 +168,7 @@ class Login {
 			
 		if (empty($username) || empty($password)) {
 	
-			exit('Hacking attamp!');
+			exit('Hacking attamp 2!');
 	
 		}
 	
@@ -136,7 +182,7 @@ class Login {
 			
 		if (empty($username) || empty($password)) {
 	
-			exit('Hacking attamp!');
+			exit('Hacking attamp 3!');
 	
 		}
 
@@ -150,12 +196,40 @@ class Login {
 			
 		if (empty($username) || empty($password)) {
 	
-			exit('Hacking attamp!');
+			exit('Hacking attamp 4!');
 	
 		}
 	
 		return array($username, $password);
 	
+	}
+	public function checkCookieUserData() {
+
+		$username= $_COOKIE['username'];
+		$password = $_COOKIE['password'];
+
+		if (empty($username) || empty($password)) {
+
+			exit('Hacking attamp 5!');
+
+		}
+
+		$username = stripslashes($username);
+		$username = htmlspecialchars($username);
+		$username = trim($username);
+
+		$password = stripslashes($password);
+		$password = htmlspecialchars($password);
+		$password = trim($password);
+
+		if (empty($username) || empty($password)) {
+
+			exit('Hacking attamp 6!');
+
+		}
+
+		return array($username, $password);
+
 	}
 	public function check_user_existence($username, $password) {
 

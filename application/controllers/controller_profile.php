@@ -34,6 +34,7 @@ class Controller_Profile extends Controller {
 
     function update_profile() {
 
+
         $this->model->data['user_id'] = $_SESSION['user_id'];
 
         $this->model->update_profile($this->parse_new_profile_data());
@@ -67,10 +68,10 @@ class Controller_Profile extends Controller {
 
     function getProfileData() {
 
-        if (isset($_SESSION['username']) && isset($_SESSION['password']) && isset($_SESSION['user_id']) ) {
+        if (isset($_COOKIE['username']) && isset($_COOKIE['password']) && isset($_SESSION['user_id']) ) {
 
-            $profile_data['username']       = $_SESSION['username'];
-            $profile_data['password']       = $_SESSION['password'];
+            $profile_data['username']       = $_COOKIE['username'];
+            $profile_data['password']       = $_COOKIE['password'];
             $profile_data['email']          = $_SESSION['email'];
             $profile_data['user_id']        = $_SESSION['user_id'];
             $profile_data['avatar_image']   = $this->getAvatarImage( $profile_data['user_id'] );
@@ -104,8 +105,6 @@ class Controller_Profile extends Controller {
     }
 
     function upload_avatar() {
-
-        //$this->copy_avatar();
 
         $this->data['username'] = 'fuck';
         $this->view->generate('profile_view.php', 'template_view.php', $this->data);

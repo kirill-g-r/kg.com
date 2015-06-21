@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Kirill Goryunov | Personal Space</title>
+		<title>CHARGES COUNTER | Personal Financial Manager</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="" />
@@ -23,15 +23,15 @@
 
 				<!-- Header -->
 					<header id="header" class="alt">
-						<h1><a href="index.html">KIRILL GORYUNOV</a></h1>
+						<h1><a href="index.html">CHARGES COUNTER</a></h1>
 						
 					</header>
 
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-							<h2>KIRILL GORYUNOV</h2>
-							<p>PERSONAL SPACE<br />
+							<h2>CHARGES COUNTER</h2>
+							<p>PERSONAL FINANCIAL MANAGER<br />
 							</p>
 							<ul class="actions">
 								<li><a href="/login" class=" scrolly button special">SIGN IN</a></li>

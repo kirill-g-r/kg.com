@@ -8,7 +8,8 @@
             <div class="1u 12u$(xsmall)" >
                 <img width="180px" src="<?php echo $data['avatar_image']; ?>" alt="" />
                 <ul class="actions">
-                    <li><input type="button" value="upload" class="button" onclick="uploadAvatar();"/></li>
+<!--                    <li><input type="file" value="upload" class="button" onload="uploadAvatar();"/></li>    -->
+                    <li><input type="button" value="upload" class="button" onload="uploadAvatar();"/></li>
                 </ul>
 
             </div>

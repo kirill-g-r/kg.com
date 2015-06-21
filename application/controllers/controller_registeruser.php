@@ -30,7 +30,7 @@ class Controller_Registeruser extends Controller {
 		
 		$this->registerUser();
 		
-		$this->setUserSessionData();
+		$this->setUserCookiesData();
 
 		$this->createProfile();
 		
@@ -135,6 +135,12 @@ class Controller_Registeruser extends Controller {
 		$_SESSION['password'] = $this->password;
 			
 		
+	}
+	public function setUserCookiesData() {
+
+		setcookie('username', $this->username);
+		setcookie('password', $this->password);
+
 	}
 	public function createProfile() {
 

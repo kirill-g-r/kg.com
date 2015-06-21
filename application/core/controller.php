@@ -47,8 +47,8 @@ class Controller {
 	}
 	public function userIsLogged() {
 
-		session_start();
-	
+/*		session_start();
+
 		if (isset($_SESSION['username'])
 			&& isset($_SESSION['password'])
 				&& !empty($_SESSION['username'])
@@ -57,7 +57,18 @@ class Controller {
 			return true;
 				
 		}
-	
+*/
+
+		if (isset($_COOKIE['username'])
+			&& isset($_COOKIE['password'])
+				&& $_COOKIE['username']
+					&& $_COOKIE['password']) {
+
+			return true;
+
+		}
+
+
 	}
 	public function ajax_request() {
 

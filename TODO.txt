@@ -5,10 +5,12 @@ FIXED 1)  Summary Table - total SUM
 FIXED 5)  Summary Table - PAGE OF ???
 6)  Summary Table - PAGE OF BUTTONS
 7)  Profile - upload image
-8)  Settings - add Category
+FIXED 8)  Settings - add Category
 9)  Settings - set email statistics
 10) Settings - email statistics
 11) Registration - Welcome Email
 12) After deleting - update page count list FAIL
 13) update profile работает через раз
-14) Auth via cookies !!!
+FIXED 14) Auth via cookies !!!
+15) ABOUT - send a mail
+16) Settings DELETE CATEGORY
