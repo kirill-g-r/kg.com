@@ -47,7 +47,7 @@ class Login {
 
 					//header('Location:/' . $this->getRequestURI());
 					//exit();
-//					echo 'OK_loginUserByFormData';
+					//echo 'OK_loginUserByFormData';
 
 					return true;
 	
@@ -124,7 +124,7 @@ class Login {
 
 					//header('Location:' . $this->getRequestURI());
 					//exit();
-//					echo 'OK_loginUserBySessionData';
+					//echo 'OK_loginUserByCookieData';
 					return true;
 
 				} else {
@@ -208,9 +208,10 @@ class Login {
 		$username= $_COOKIE['username'];
 		$password = $_COOKIE['password'];
 
-		if (empty($username) || empty($password)) {
+		if ( empty($username) || empty($password) ) {
 
-			exit('Hacking attamp 5!');
+//			exit('Hacking attamp 5!');
+			return false;
 
 		}
 

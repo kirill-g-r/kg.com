@@ -100,6 +100,9 @@ class Controller_Profile extends Controller {
         $_SESSION = array();
         session_destroy();
 
+        setcookie('username', null);
+        setcookie('password', null);
+
         header('Location:login');
 
     }

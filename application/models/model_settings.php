@@ -3,10 +3,13 @@
 class Model_Settings extends Model {
 
 	public $data;
+	public $requested_page = 1;
+	public $requested_page_count = 1;
+	public $selected_range;
 
 	public function add_new_category( $new_category = false ) {
 
-		return $this->dbConnect->query( "INSERT INTO `charges_category` (`name`) VALUES ('".$new_category['category']."') ;" );
+		return $this->dbConnect->query( "INSERT INTO `charges_category` (`name`, id_user`) VALUES ('".$new_category['category']."', ".$this->data['user_id'].") ;" );
 
 	}
 
@@ -34,6 +37,12 @@ class Model_Settings extends Model {
 	function get_category_list() {
 
 		return $this->dbConnect->query( 'SELECT DISTINCT `name` as `category`, `id` FROM `charges_category` ORDER BY `name`;' )->fetchAll();
+
+	}
+
+	function delete_user_category($id) {
+
+		return $this->dbConnect->query( 'DELETE FROM `charges_category` WHERE id = '.$id.' AND `id_user` = '.$this->data['user_id'].' AND id_user != 0;' );
 
 	}
 

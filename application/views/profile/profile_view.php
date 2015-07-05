@@ -40,7 +40,6 @@
                         <li><input type="submit" value="update profile" class="special" /></li>
                     </ul>
                 </div>
-
             </div>
             <div class="10u$ 12u$(xsmall)">
             </div>

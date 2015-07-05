@@ -12,6 +12,11 @@ class Controller_Settings extends Controller
 
     function action_index()
     {
+
+        $this->checkUserAccess();
+
+        $this->get_user_id();
+
         if ($ajax_action = $this->ajax_request()) {
 
             // if AJAX-request
@@ -29,10 +34,6 @@ class Controller_Settings extends Controller
     }
     function load_page() {
 
-        $this->checkUserAccess();
-
-        $this->model->data['user_id'] = $_SESSION['user_id'];
-
         $data = $this->model->get_data();
 
         $this->view->generate('settings_view.php', 'template_view.php', $data);
@@ -40,10 +41,6 @@ class Controller_Settings extends Controller
     }
 
     function add_new_category() {
-
-        $this->checkUserAccess();
-
-        $this->model->data['user_id'] = $_SESSION['user_id'];
 
         $this->model->add_new_category( $this->parse_new_category() );
         $data = $this->model->get_data();
@@ -63,30 +60,35 @@ class Controller_Settings extends Controller
         return $category;
 
     }
-    function delete_charge_from_summary_table_get_id() {
+
+    function delete_user_category_get_id() {
 
         if (isset($_POST['action'])
-            && $_POST['action'] == 'delete_charge_from_summary_table'
-            && isset($_POST['delete_charge_from_summary_table_id'])
-            && $_POST['delete_charge_from_summary_table_id']) {
+            && $_POST['action'] == 'delete_user_category'
+            && isset($_POST['delete_user_category_id'])
+            && $_POST['delete_user_category_id']) {
 
-            return $_POST['delete_charge_from_summary_table_id'];
+            return $_POST['delete_user_category_id'];
 
         }
 
         return false;
 
     }
-    function delete_charge_from_summary_table() {
+    function delete_user_category() {
 
-        $this->checkUserAccess();
+        $this->model->delete_user_category($this->delete_user_category_get_id());
 
-        $this->model->delete_charge_from_summary_table($this->delete_charge_from_summary_table_get_id());
         $data = $this->model->get_data();
-        $this->view->generate('', 'charges_view.php', $data);
+        $this->view->generate('', 'settings_view.php', $data);
 
     }
 
+    function get_user_id() {
+
+        $this->model->data['user_id'] = $_SESSION['user_id'];
+
+    }
 
     function __destruct() {
 

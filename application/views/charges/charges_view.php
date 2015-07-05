@@ -1,6 +1,6 @@
 <section>
     <h4>CHARGES</h4>
-    <form method="post" action="#" onsubmit="addNewCharge()" ">
+    <form method="post" action="/" onsubmit="addNewCharge()" ">
         <div class="row uniform">
             <div class="6u 12u$(xsmall)">
                 <input type="text" name="add_charge_name" id="add_charge_name" value="" placeholder="Name" required autofocus />
