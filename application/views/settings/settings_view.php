@@ -62,10 +62,11 @@
             <?php
 
             foreach ($data['category_list'] as $d) {
-                if ($d['id'] != 1) {
+                if ($d['id_user'] != 0) {
                     $row = '<td style="text-align:center; cursor:pointer;" onclick="delete_user_category(' . $d['id'] . ');" class="icon fa-trash"></td>';
                 } else {
                     $row = '<td></td>';
+
                 }
 
                 echo '<tr><td>'.$d['category'].'</td><td>'.$d['id'].'</td>'.$row.'</tr>';

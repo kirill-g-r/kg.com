@@ -24,7 +24,7 @@ class Model
 
 			if ($config) {
 
-				if (!$this->dbConnect = new PDO( 'mysql:host='.$config['db_connect_local']['db_host'].';dbname='.$config['db_connect_local']['db_name'], $config['db_connect_local']['db_user'], $config['db_connect_local']['db_password'] )) {
+				if (!$this->dbConnect = new PDO( 'mysql:host='.$config['db_connect']['db_host'].';dbname='.$config['db_connect']['db_name'], $config['db_connect']['db_user'], $config['db_connect']['db_password'] )) {
 
 					exit('Failed to connect to DB');
 

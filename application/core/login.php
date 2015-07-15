@@ -238,7 +238,7 @@ class Login {
 
 		if ($config) {
 
-			if (!$dbConnect = new PDO('mysql:host=' . $config['db_connect_local']['db_host'] . ';dbname=' . $config['db_connect_local']['db_name'], $config['db_connect_local']['db_user'], $config['db_connect_local']['db_password'])) {
+			if (!$dbConnect = new PDO('mysql:host=' . $config['db_connect']['db_host'] . ';dbname=' . $config['db_connect']['db_name'], $config['db_connect']['db_user'], $config['db_connect']['db_password'])) {
 
 #		if (!$dbConnect = new PDO( 'mysql:host=localhost;dbname=MyCharges', 'root', 'ahdierahzuexeeco' )) {
 #		if (!$dbConnect = new PDO( 'mysql:host=localhost;dbname=MyCharges', 'root', 'sergsund' )) {

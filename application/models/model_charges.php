@@ -87,7 +87,7 @@ class Model_Charges extends Model {
 
 	public function get_category_list() {
 
-		return $this->dbConnect->query( 'SELECT DISTINCT `name` as `category`, `id` FROM `charges_category` ORDER BY `name`;' )->fetchAll();
+		return $this->dbConnect->query( 'SELECT DISTINCT `name` as `category`, `id` FROM `charges_category` WHERE `id_user` IN (0, '.$this->data['user_id'].') ORDER BY `name`;' )->fetchAll();
 
 	}
 

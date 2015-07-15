@@ -44,7 +44,7 @@ class Controller_Settings extends Controller
 
         $this->model->add_new_category( $this->parse_new_category() );
         $data = $this->model->get_data();
-        $this->view->generate('', 'charges_view.php', $data);
+        $this->view->generate('', 'settings_view.php', $data);
 
     }
     function parse_new_category() {

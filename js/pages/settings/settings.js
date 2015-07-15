@@ -19,7 +19,7 @@ function addNewCategory() {
 
 function delete_user_category(id_category_for_delete) {
 
-    if (confirm('The record will be deleted. Continue?')) {
+    if (confirm('This category and all charges of this category will be deleted. Continue?')) {
 
         $.ajax({
             type: "POST",
