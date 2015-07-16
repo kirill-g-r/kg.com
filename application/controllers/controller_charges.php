@@ -12,6 +12,11 @@ class Controller_Charges extends Controller
 
     function action_index()
     {
+
+        $this->checkUserAccess();
+
+        $this->get_user_id();
+
         if ($ajax_action = $this->ajax_request()) {
 
             // if AJAX-request
@@ -29,10 +34,6 @@ class Controller_Charges extends Controller
     }
     function load_page() {
 
-        $this->checkUserAccess();
-
-        $this->model->data['user_id'] = $_SESSION['user_id'];
-
         $data = $this->model->get_data();
 
         $this->view->generate('charges_view.php', 'template_view.php', $data);
@@ -40,10 +41,6 @@ class Controller_Charges extends Controller
     }
 
     function addcharge() {
-
-        $this->checkUserAccess();
-
-        $this->model->data['user_id'] = $_SESSION['user_id'];
 
         $this->model->addcharge( $this->parse_new_charge() );
         $data = $this->model->get_data();
@@ -82,11 +79,15 @@ class Controller_Charges extends Controller
     }
     function delete_charge_from_summary_table() {
 
-        $this->checkUserAccess();
-
         $this->model->delete_charge_from_summary_table($this->delete_charge_from_summary_table_get_id());
         $data = $this->model->get_data();
         $this->view->generate('', 'charges_view.php', $data);
+
+    }
+
+    function get_user_id() {
+
+        $this->model->data['user_id'] = $_SESSION['user_id'];
 
     }
 

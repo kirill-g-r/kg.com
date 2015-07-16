@@ -162,14 +162,15 @@ class Controller_Registeruser extends Controller {
 	}
 	public function sendMailToNewUser() {
 		
-		mail("goryunov.k@mail.ru", "My Subject", "Line 1\nLine 2\nLine 3");
-		echo 'OK!';
+		//mail("goryunov.k@mail.ru", "My Subject", "Line 1\nLine 2\nLine 3");
+		//echo 'OK!';
 		
 		//$to  = $this->email;
-		$to = 'Goryunov.K@mail.ru';
+		//$to = 'Goryunov.K@mail.ru';
+		$to = 'To: Mary <'.$this->email.'>';
 		
 		// тема письма
-		$subject = 'Welcome To MyWeekend';
+		$subject = 'Welcome To CHARGES COUNTER';
 		
 		// текст письма
 		$message = '
@@ -199,10 +200,11 @@ class Controller_Registeruser extends Controller {
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		
 		// Дополнительные заголовки
-		$headers .= 'To: Mary <sergsund@yandex.ru>, Kelly <sergsund@yandex.ru>' . "\r\n";
-		$headers .= 'From: Birthday Reminder <sergsund@yandex.ru>' . "\r\n";
-		$headers .= 'Cc: sergsund@yandex.ru' . "\r\n";
-		$headers .= 'Bcc: sergsund@yandex.ru' . "\r\n";
+		//$headers .= 'To: Mary <'.$this->email.'>, Kelly <sergsund@yandex.ru>' . "\r\n";
+		$headers .= 'To: Mary <'.$this->email.'>' . "\r\n";
+		$headers .= 'From: CHARGES COUNTER <info@kirillgoryunov.com>' . "\r\n";
+		//$headers .= 'Cc: sergsund@yandex.ru' . "\r\n";
+		//$headers .= 'Bcc: sergsund@yandex.ru' . "\r\n";
 		
 		// Отправляем
 		return mail($to, $subject, $message, $headers);

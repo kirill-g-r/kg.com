@@ -4,7 +4,7 @@
     <h5>Your category list:</h5>
     </BR>
 
-    <form method="post" action="#" onsubmit="addNewCategory()" ">
+    <form method="post" >
         <div class="row uniform">
             <div class="12u$">
                 <input type="text" name="add_new_category_name" id="add_new_category_name" value="" placeholder="Category Name" required autofocus />
@@ -36,7 +36,7 @@
             -->
             <div class="12u$">
                 <ul class="actions">
-                    <li><input type="submit" value="Add new" class="special" /></li>
+                    <li><input type="button" value="Add new" class="special" onclick="addNewCategory()"/></li>
                     <li><input type="reset" value="Reset" /></li>
                 </ul>
             </div>
