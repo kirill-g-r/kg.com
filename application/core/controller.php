@@ -48,7 +48,7 @@ class Controller {
 	public function userIsLogged() {
 
 /*		session_start();
-
+		// Old version
 		if (isset($_SESSION['username'])
 			&& isset($_SESSION['password'])
 				&& !empty($_SESSION['username'])
