@@ -11,8 +11,10 @@
     <meta name="keywords" content="" />
     <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="js/gritter/css/jquery.gritter_gkg.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="css/ie/v9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+
 </head>
 <body>
 
@@ -84,6 +86,10 @@
 <script src="js/jquery.scrolly.min.js"></script>
 <script src="js/skel.min.js"></script>
 <script src="js/init.js"></script>
+<script src="js/gritter/js/jquery.gritter.js"></script>
+<script src="js/gritter-conf.js"></script>
+
+
 
 <?php
 

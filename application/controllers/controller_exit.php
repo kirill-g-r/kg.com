@@ -9,7 +9,7 @@ class Controller_Exit extends Controller
 		$_SESSION = array();		
 		session_destroy();
 
-		setcookie('username', null);
+		setcookie('email', null);
 		setcookie('password', null);
 		
 		header('Location:main');

@@ -59,9 +59,9 @@ class Controller {
 		}
 */
 
-		if (isset($_COOKIE['username'])
+		if (isset($_COOKIE['email'])
 			&& isset($_COOKIE['password'])
-				&& $_COOKIE['username']
+				&& $_COOKIE['email']
 					&& $_COOKIE['password']) {
 
 			return true;

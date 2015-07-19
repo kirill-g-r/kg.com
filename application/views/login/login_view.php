@@ -37,7 +37,7 @@ MAIN CONTENT
     <form class="form-login" role="form" action="/charges" method="post">
       <h2 class="form-login-heading">SIGN IN</h2>
       <div class="login-wrap">
-        <input type="text" name="username" class="form-control" placeholder="Username" required autofocus>
+        <input type="email" name="email" class="form-control" placeholder="E-mail" required autofocus value="<?php if (isset($_COOKIE['email'])) echo $_COOKIE['email']; ?>">
         <br>
         <input type="password" name="password" class="form-control" placeholder="Password" required >
         <label class="checkbox">
@@ -83,7 +83,7 @@ MAIN CONTENT
             </div>
             <div class="modal-body">
               <p>Enter your e-mail address below to reset your password.</p>
-              <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+              <input type="text" name="email_reset" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 
             </div>
             <div class="modal-footer">

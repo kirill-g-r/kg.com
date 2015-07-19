@@ -40,11 +40,15 @@ class Controller_Charges extends Controller
 
     }
 
-    function addcharge() {
+    function addcharge()
+    {
 
-        $this->model->addcharge( $this->parse_new_charge() );
-        $data = $this->model->get_data();
-        $this->view->generate('', 'charges_view.php', $data);
+        if ($this->model->addcharge($this->parse_new_charge())) {
+
+            $data = $this->model->get_data();
+            $this->view->generate('', 'charges_view.php', $data);
+
+        }
 
     }
     function parse_new_charge() {
@@ -57,6 +61,13 @@ class Controller_Charges extends Controller
         foreach ($charge as $key => $ch) {
 
             $charge[$key] = trim(htmlspecialchars(stripcslashes($ch)));
+
+            if (empty($charge[$key])) {
+
+                //Hacking attamp or wrong values
+                exit;
+
+            }
 
         }
 
