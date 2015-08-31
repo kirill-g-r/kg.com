@@ -22,7 +22,7 @@ class Model_RegisterUser extends Model {
 		
 	}
 	public function createNewUser( $email, $username, $password ) {
-		
+
 		$sql = 'INSERT INTO `users` (
 					`email`,
 					`username`, 
@@ -41,6 +41,7 @@ class Model_RegisterUser extends Model {
 						':username' => $username,
 						':password' => $password
 				));
+
 
 		return $this->dbConnect->lastInsertId();
 			

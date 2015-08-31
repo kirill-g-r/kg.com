@@ -132,6 +132,7 @@ class Controller_Registeruser extends Controller {
 		session_start();
 
 		$_SESSION['username'] = $this->username;
+		$_SESSION['email'] = $this->username;
 		$_SESSION['password'] = $this->password;
 			
 		

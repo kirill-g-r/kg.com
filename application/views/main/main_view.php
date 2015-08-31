@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>CHARGES COUNTER | Personal Financial Manager</title>
+		<title>COSTS COUNTER | Personal Financial Manager</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content="" />
@@ -30,11 +30,11 @@
 				<!-- Banner -->
 					<section id="banner">
 						<div class="inner">
-							<h2>CHARGES COUNTER</h2>
+							<h2>COSTS COUNTER</h2>
 							<p>PERSONAL FINANCIAL MANAGER<br />
 							</p>
 							<ul class="actions">
-								<li><a href="/login" class=" scrolly button special">SIGN IN</a></li>
+								<li><a href="/login" class=" scrolly button special">ENTER</a></li>
 							</ul>
 						</div>
 						<!-- <a href="#one" class="more scrolly">Learn More</a> -->

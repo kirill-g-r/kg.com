@@ -7,7 +7,7 @@
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
 
-  <title>Kirill Goryunov | Log In</title>
+  <title>Costs Counter | Log In</title>
 
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.css" rel="stylesheet">
@@ -65,8 +65,8 @@ MAIN CONTENT
         <div class="registration">
           Home Page<br/>
 
-          <a class="" href="/">
-            Back<br/>
+          <a class="" href="/exit">
+            Exit<br/>
           </a>
 
         </div>

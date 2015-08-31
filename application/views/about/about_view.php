@@ -1,5 +1,5 @@
 <header>
-    <h4>What is CHARGES COUNTER</h4>
+    <h4>What is COSTS COUNTER</h4>
     <p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
 </header>
 <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>

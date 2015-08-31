@@ -34,7 +34,6 @@ class Controller_Profile extends Controller {
 
     function update_profile() {
 
-
         $this->model->data['user_id'] = $_SESSION['user_id'];
 
         $this->model->update_profile($this->parse_new_profile_data());
@@ -101,6 +100,7 @@ class Controller_Profile extends Controller {
         session_destroy();
 
         setcookie('username', null);
+        setcookie('email', null);
         setcookie('password', null);
 
         header('Location:login');

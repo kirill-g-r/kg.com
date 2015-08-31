@@ -4,7 +4,7 @@
 -->
 <html>
 <head>
-    <title>Charges Counter - Kirill Goryunov, 2015</title>
+    <title>Costs Counter by Kirill Goryunov</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="" />
@@ -23,7 +23,7 @@
 
     <!-- Header -->
     <header id="header">
-        <h1><a href="/">Charges Counter</a></h1>
+        <h1><a href="/">Costs Counter</a></h1>
         <nav id="nav">
             <ul>
                 <li class="special">
@@ -74,7 +74,7 @@
             <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
         </ul>
         <ul class="copyright">
-            <li>&copy; Charges Counter</li><li> Kirill Goryunov, 2015</li>
+            <li>&copy; Costs Counter</li><li> Kirill Goryunov 2015</li>
         </ul>
     </footer>
 

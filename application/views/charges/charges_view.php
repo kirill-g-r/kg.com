@@ -1,5 +1,5 @@
 <section>
-    <h4>CHARGES</h4>
+    <h4>COSTS</h4>
     <form method="post" >
         <div class="row uniform">
             <div class="6u 12u$(xsmall)">
