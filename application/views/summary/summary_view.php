@@ -54,7 +54,7 @@
                         <?php echo $data['total_sum'];  ?>
                     </b>
                 </td>
-                <td><b>RUB</b></td>
+                <td><b><?php echo $data['currency']; ?></b></td>
             </tr>
             </tfoot>
         </table>

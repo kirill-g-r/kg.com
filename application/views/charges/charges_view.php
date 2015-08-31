@@ -10,10 +10,27 @@
             </div>
             <div class="2u$ 12u$(xsmall)">
                 <div class="select-wrapper">
-                    <select name="add_charge_currency" id="add_charge_currency">
-                        <option value="RUB" selected >RUB</option>
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
+                    <select name="add_charge_currency" id="add_charge_currency" onchange="setCurrency();">
+
+                        <?php
+
+                        foreach (array('RUB', 'USD', 'EUR') as $currency) {
+
+                            if ($currency == $data['currency']) {
+
+                                echo "<option value=".$data['currency']." selected >".$data['currency']."</option>";
+
+                            } else {
+
+                                echo "<option value=".$currency.">".$currency."</option>";
+
+                            }
+
+                        }
+
+                        ?>
+
+
                     </select>
                 </div>
             </div>
@@ -98,7 +115,7 @@
 
             foreach ($data['category_summary_table'] as $d) {
 
-                echo '<tr><td>'.$d['category'].'</td><td>'.$d['sum'].'</td><td>'.$d['currency'].'</td><td>'.$d['payments_count'].'</td><td>'.$d['last_payment'].'</td></tr>';
+                echo '<tr><td>'.$d['category'].'</td><td>'.$d['sum'].'</td><td>'.$data['currency'].'</td><td>'.$d['payments_count'].'</td><td>'.$d['last_payment'].'</td></tr>';
 
             }
 
@@ -112,7 +129,7 @@
                         <?php echo $data['total_sum'];  ?>
                     </b>
                 </td>
-                <td><b>RUB</b></td>
+                <td><b><?php echo $data['currency']; ?></b></td>
             </tr>
             </tfoot>
         </table>

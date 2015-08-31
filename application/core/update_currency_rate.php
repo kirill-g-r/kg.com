@@ -52,8 +52,17 @@
     $fp = fopen('../../configurations/.currency_rate.ini', 'w');
 
     fwrite($fp, '[currency_rate]' . "\n");
-    fwrite($fp, 'RUB_USD = ' . $USD . "\n");
-    fwrite($fp, 'RUB_EUR = ' . $EUR . "\n");
+    fwrite($fp, 'RUB_USD = ' . '0.015311' . "\n");
+    fwrite($fp, 'RUB_EUR = ' . '0.0136787185' . "\n");
+    fwrite($fp, 'RUB_RUB = ' . 1 . "\n");
+
+    fwrite($fp, 'USD_USD = ' . 1 . "\n");
+    fwrite($fp, 'USD_EUR = ' . '0.893391582' . "\n");
+    fwrite($fp, 'USD_RUB = ' . $USD . "\n");
+
+    fwrite($fp, 'EUR_USD = ' . '1.11933' . "\n");
+    fwrite($fp, 'EUR_EUR = ' . 1 . "\n");
+    fwrite($fp, 'EUR_RUB = ' . $EUR . "\n");
 
     fclose($fp);
 

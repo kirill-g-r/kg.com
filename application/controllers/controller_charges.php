@@ -53,12 +53,18 @@ class Controller_Charges extends Controller
     }
     function parse_new_charge() {
 
-        $charge['name'] =       $_POST['add_charge_name'];
-        $charge['coast'] =      $_POST['add_charge_coast'];
-        $charge['currency'] =   $_POST['add_charge_currency'];
-        $charge['category'] =   $_POST['add_charge_category'];
+        $charge['name'] =       @$_POST['add_charge_name'];
+        $charge['coast'] =      @$_POST['add_charge_coast'];
+        $charge['currency'] =   @$_POST['add_charge_currency'];
+        $charge['category'] =   @$_POST['add_charge_category'];
 
         foreach ($charge as $key => $ch) {
+
+            if (empty($charge[$key])) {
+
+                continue;
+
+            }
 
             $charge[$key] = trim(htmlspecialchars(stripcslashes($ch)));
 
@@ -99,6 +105,17 @@ class Controller_Charges extends Controller
     function get_user_id() {
 
         $this->model->data['user_id'] = $_SESSION['user_id'];
+
+    }
+    function setcurrency()
+    {
+
+        if ($this->model->setcurrency($this->parse_new_charge())) {
+
+            $data = $this->model->get_data();
+            $this->view->generate('', 'charges_view.php', $data);
+
+        }
 
     }
 

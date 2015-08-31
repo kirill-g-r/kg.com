@@ -8,17 +8,21 @@ class Model_Summary extends Model
 	public $requested_page_count = 1;
 	public $selected_range;
 
-	public function get_coast_in_RUB($data) {
+	public function get_coast_in_total_currency($data) {
 
 		global $config;
 
 		if ($data['currency'] == 'EUR') {
 
-			return $data['coast'] * $config['currency_rate']['RUB_EUR'];
+			return $data['coast'] * $config['currency_rate']['EUR_'.$this->data['currency']];
 
 		} else if ($data['currency'] == 'USD') {
 
-			return $data['coast'] * $config['currency_rate']['RUB_USD'];
+			return $data['coast'] * $config['currency_rate']['USD_'.$this->data['currency']];
+
+		} else if ($data['currency'] == 'RUB') {
+
+			return $data['coast'] * $config['currency_rate']['RUB_'.$this->data['currency']];
 
 		} else {
 
@@ -34,7 +38,7 @@ class Model_Summary extends Model
 
 		foreach ($this->data['summary_table'] as $s_t) {
 
-			$total_sum += $this->get_coast_in_RUB($s_t);
+			$total_sum += $this->get_coast_in_total_currency($s_t);
 
 		}
 
@@ -89,7 +93,17 @@ class Model_Summary extends Model
 
 	}
 
+	public function get_currency() {
+
+		$result = $this->dbConnect->query( 'SELECT `currency` FROM `users` WHERE `id` = '.$this->data['user_id'].';' )->fetch();
+
+		return $result['currency'];
+
+	}
+
 	public function get_data()	{
+
+		$this->data['currency'] = $this->get_currency();
 
 		$this->data['summary_table'] = $this->get_summary_table_data_page();
 
