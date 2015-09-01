@@ -35,7 +35,7 @@ class Controller_Registeruser extends Controller {
 		$this->createProfile();
 		
 		$this->sendMailToNewUser();
-		
+
 		header('Location:/main');
 		
 		
@@ -117,7 +117,8 @@ class Controller_Registeruser extends Controller {
 		
 				$this->email,
 				$this->username,
-				$this->password
+				$this->password,
+				'RUB'
 					
 		)) {
 				
@@ -132,7 +133,7 @@ class Controller_Registeruser extends Controller {
 		session_start();
 
 		$_SESSION['username'] = $this->username;
-		$_SESSION['email'] = $this->username;
+		$_SESSION['email'] = $this->email;
 		$_SESSION['password'] = $this->password;
 			
 		
@@ -140,6 +141,7 @@ class Controller_Registeruser extends Controller {
 	public function setUserCookiesData() {
 
 		setcookie('username', $this->username);
+		setcookie('email', $this->email);
 		setcookie('password', $this->password);
 
 	}
@@ -162,16 +164,19 @@ class Controller_Registeruser extends Controller {
 
 	}
 	public function sendMailToNewUser() {
-		
+
+
+return true;
+
 		//mail("goryunov.k@mail.ru", "My Subject", "Line 1\nLine 2\nLine 3");
 		//echo 'OK!';
 		
 		//$to  = $this->email;
 		//$to = 'Goryunov.K@mail.ru';
-		$to = 'To: Mary <'.$this->email.'>';
+		$to = 'To: Username <goryunov.k@mail.ru>';
 		
 		// тема письма
-		$subject = 'Welcome To CHARGES COUNTER';
+		$subject = 'Welcome To COSTS COUNTER';
 		
 		// текст письма
 		$message = '
@@ -195,15 +200,17 @@ class Controller_Registeruser extends Controller {
 					</body>
 					</html>
 					';
-		
+
+		$message = file_get_contents('../views/email_templates/registration/registration_email.html');
+
 		// Для отправки HTML-письма должен быть установлен заголовок Content-type
 		$headers  = 'MIME-Version: 1.0' . "\r\n";
 		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 		
 		// Дополнительные заголовки
 		//$headers .= 'To: Mary <'.$this->email.'>, Kelly <sergsund@yandex.ru>' . "\r\n";
-		$headers .= 'To: Mary <'.$this->email.'>' . "\r\n";
-		$headers .= 'From: CHARGES COUNTER <info@kirillgoryunov.com>' . "\r\n";
+		//$headers .= 'To: Mary <'.$this->email.'>' . "\r\n";
+		$headers .= 'From: COSTS COUNTER <info@kirillgoryunov.com>' . "\r\n";
 		//$headers .= 'Cc: sergsund@yandex.ru' . "\r\n";
 		//$headers .= 'Bcc: sergsund@yandex.ru' . "\r\n";
 		

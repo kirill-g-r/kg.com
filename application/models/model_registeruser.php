@@ -21,17 +21,21 @@ class Model_RegisterUser extends Model {
 		return $sth->fetch();
 		
 	}
-	public function createNewUser( $email, $username, $password ) {
+	public function createNewUser( $email, $username, $password, $currency ) {
 
 		$sql = 'INSERT INTO `users` (
 					`email`,
 					`username`, 
-					`password`
+					`password`,
+					`currency`,
+					`last_login`
 				)
 				VALUES (
 					:email,
 					:username,
-					:password
+					:password,
+					:currency,
+					now()
 				);';
 		
 		$sth = $this->dbConnect->prepare($sql);
@@ -39,7 +43,8 @@ class Model_RegisterUser extends Model {
 			$sth->execute(array(
 						':email' 	=> $email,
 						':username' => $username,
-						':password' => $password
+						':password' => $password,
+						':currency' => $currency
 				));
 
 

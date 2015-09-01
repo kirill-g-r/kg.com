@@ -4,14 +4,15 @@
     <form method="post" action="#" onsubmit="updateProfile()" ">
 
         <div class="row uniform">
-
+            <BR>
+<!--
             <div class="1u 12u$(xsmall)" >
                 <img width="180px" src="<?php echo $data['avatar_image']; ?>" alt="" />
                 <ul class="actions">
-<!--                    <li><input type="file" value="upload" class="button" onload="uploadAvatar();"/></li>    -->
+                   <li><input type="file" value="upload" class="button" onload="uploadAvatar();"/></li>
                     <li><input type="button" value="upload" class="button" onload="uploadAvatar();"/></li>
                 </ul>
-
+-->
             </div>
             <div class="row uniform">
                 <div class="2u 12u$(xsmall) ">

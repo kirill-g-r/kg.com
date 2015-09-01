@@ -14,7 +14,7 @@ class Login {
 	
 			if (!Login::loginUserByFormData()) {
 	
-				echo 'SHIT LOGIN!';
+//				echo 'SHIT LOGIN!';
 				header('Location:/login');
 				exit;
 	
