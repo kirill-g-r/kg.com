@@ -1,4 +1,32 @@
+<?php
 
+$user = unserialize($argv[1]);
+
+/**
+ *
+ * $user['username']
+ * $user['email']
+ * $user['password']
+ *
+ */
+
+$to = 'To: 123'.$user['username'].' <'.$user['email'].'>';
+
+$subject = 'Welcome To COSTS C123OUNTER';
+
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+// Дополнительные заголовки
+//$headers .= 'To: Mary <'.$this->email.'>, Kelly <sergsund@yandex.ru>' . "\r\n";
+//$headers .= 'To: Mary <'.$this->email.'>' . "\r\n";
+$headers .= 'From: COSTS COUNTER <info@kirillgoryunov.com>' . "\r\n";
+//$headers .= 'Cc: sergsund@yandex.ru' . "\r\n";
+//$headers .= 'Bcc: sergsund@yandex.ru' . "\r\n";
+
+
+
+$message = '
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -297,7 +325,7 @@
                                                             <table border="0" cellpadding="30" cellspacing="0" width="100%">
                                                                 <tr>
                                                                     <td align="center" valign="top" class="textContent">
-                                                                        <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Welcome to</h1>
+                                                                        <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Welcome '.$user['username'].' to</h1>
                                                                         <h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;">CHARGES COUNTER</h2>
                                                                         <div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Thank you for registration</div>
                                                                     </td>
@@ -601,3 +629,10 @@
         </center>
     </body>
 </html>
+
+
+
+'
+;
+
+return mail($to, $subject, $message, $headers);

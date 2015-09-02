@@ -1,16 +1,13 @@
-FIXED 1)  Summary Table - total SUM
-FIXED 2)  Charges Page - top menu not fixed
-3)  Charges Page - on mobil phone buttons failed
-4)  CRON UPDATE FAIL update_currency_rate
-FIXED 5)  Summary Table - PAGE OF ???
-6)  Summary Table - PAGE OF BUTTONS
-7)  Profile - upload image
-FIXED 8)  Settings - add Category
-9)  Settings - set email statistics
-10) Settings - email statistics
-11) Registration - Welcome Email
-12) After deleting - update page count list FAIL
-FIXED 13) update profile работает через раз
-FIXED 14) Auth via cookies !!!
-15) ABOUT - send a mail
-16) Settings DELETE CATEGORY
+
+1)  Charges Page - on mobil phone buttons failed
+2)  CRON UPDATE FAIL update_currency_rate
+3)  CRON UPDATE FROM rbc.com
+4)  Summary Table - PAGE OF BUTTONS
+5)  Profile - upload image
+6)  Settings - set email statistics
+7)  Settings - email statistics
+8)  Registration - Welcome Email
+9)  update profile работает через раз
+10) Таймаут сессии через $_SESSION
+11) Картинку в закладке
+12) Forgot password?

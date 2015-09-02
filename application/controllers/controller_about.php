@@ -43,9 +43,11 @@ class Controller_About extends Controller
     }
     function about_parse_and_send() {
 
-        $to         = $_POST['about_send_mail_name'];
-        $subject    = $_POST['about_send_mail_name'];
+        $username   = $_POST['about_send_mail_name'];
+        $email      = $_POST['about_send_mail_email'];
         $message    = $_POST['about_send_mail_message'];
+
+        $message .= "\n\n--------------------------\n" . "Letter from:\n" . $username . "\t" . $email;
 
         if (empty($message)) {
 
@@ -53,7 +55,7 @@ class Controller_About extends Controller
 
         }
 
-        mail("goryunov.k@mail.ru", "ABOUT_SEND_MAIL", $message);
+        mail("admin@kirillgoryunov.com", "ABOUT_SEND_MAIL", $message);
 
     }
 

@@ -165,58 +165,14 @@ class Controller_Registeruser extends Controller {
 	}
 	public function sendMailToNewUser() {
 
+		$user['username'] = $this->username;
+		$user['email'] = 'admin@kirillgoryunov.com';
+		$user['password'] = $this->password;
 
-return true;
+		exec("php /var/www/gkg/data/www/costscounter.kirillgoryunov.com/application/core/mail_registration.php '".serialize($user)."' ");
 
-		//mail("goryunov.k@mail.ru", "My Subject", "Line 1\nLine 2\nLine 3");
-		//echo 'OK!';
-		
-		//$to  = $this->email;
-		//$to = 'Goryunov.K@mail.ru';
-		$to = 'To: Username <goryunov.k@mail.ru>';
-		
-		// тема письма
-		$subject = 'Welcome To COSTS COUNTER';
-		
-		// текст письма
-		$message = '
-					<html>
-					<head>
-					  <title>Birthday Reminders for August</title>
-					</head>
-					<body>
-					  <p>Here are the birthdays upcoming in August!</p>
-					  <table>
-					    <tr>
-					      <th>Person</th><th>Day</th><th>Month</th><th>Year</th>
-					    </tr>
-					    <tr>
-					      <td>Joe</td><td>3rd</td><td>August</td><td>1970</td>
-					    </tr>
-					    <tr>
-					      <td>Sally</td><td>17th</td><td>August</td><td>1973</td>
-					    </tr>
-					  </table>
-					</body>
-					</html>
-					';
+		return true;
 
-		$message = file_get_contents('../views/email_templates/registration/registration_email.html');
-
-		// Для отправки HTML-письма должен быть установлен заголовок Content-type
-		$headers  = 'MIME-Version: 1.0' . "\r\n";
-		$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-		
-		// Дополнительные заголовки
-		//$headers .= 'To: Mary <'.$this->email.'>, Kelly <sergsund@yandex.ru>' . "\r\n";
-		//$headers .= 'To: Mary <'.$this->email.'>' . "\r\n";
-		$headers .= 'From: COSTS COUNTER <info@kirillgoryunov.com>' . "\r\n";
-		//$headers .= 'Cc: sergsund@yandex.ru' . "\r\n";
-		//$headers .= 'Bcc: sergsund@yandex.ru' . "\r\n";
-		
-		// Отправляем
-		return mail($to, $subject, $message, $headers);
-		
 	}
 		
 }
