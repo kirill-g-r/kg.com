@@ -6,7 +6,7 @@
                 <input type="text" name="add_charge_name" id="add_charge_name" value="" placeholder="Name" required autofocus />
             </div>
             <div class="4u 12u$(xsmall)">
-                <input type="text" name="add_charge_coast" id="add_charge_coast" value="" placeholder="Coast" required />
+                <input type="text" pattern="\d+(,\d{2})?" name="add_charge_coast" id="add_charge_coast" value="" placeholder="Coast" required />
             </div>
             <div class="2u$ 12u$(xsmall)">
                 <div class="select-wrapper">
