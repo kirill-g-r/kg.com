@@ -165,9 +165,9 @@ class Controller_Registeruser extends Controller {
 	}
 	public function sendMailToNewUser() {
 
-		$user['username'] = $this->username;
-		$user['email'] = 'admin@kirillgoryunov.com';
-		$user['password'] = $this->password;
+		$user['username'] 	= $this->username;
+		$user['email'] 		= $this->email;
+		$user['password'] 	= $this->password;
 
 		exec("php /var/www/gkg/data/www/costscounter.kirillgoryunov.com/application/core/mail_registration.php '".serialize($user)."' ");
 

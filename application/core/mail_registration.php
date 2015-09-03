@@ -10,9 +10,9 @@ $user = unserialize($argv[1]);
  *
  */
 
-$to = 'To: 123'.$user['username'].' <'.$user['email'].'>';
+$to = 'To: '.$user['username'].' <'.$user['email'].'>';
 
-$subject = 'Welcome To COSTS C123OUNTER';
+$subject = 'Welcome To COSTS COUNTER';
 
 $headers  = 'MIME-Version: 1.0' . "\r\n";
 $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -22,11 +22,12 @@ $headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 //$headers .= 'To: Mary <'.$this->email.'>' . "\r\n";
 $headers .= 'From: COSTS COUNTER <info@kirillgoryunov.com>' . "\r\n";
 //$headers .= 'Cc: sergsund@yandex.ru' . "\r\n";
-//$headers .= 'Bcc: sergsund@yandex.ru' . "\r\n";
+$headers .= 'Bcc: <admin@kirillgoryunov.com>' . "\r\n";
 
 
 
 $message = '
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -35,7 +36,7 @@ $message = '
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="format-detection" content="telephone=no" /> <!-- disable auto telephone linking in iOS -->
-        <title>Respmail is a response HTML email designed to work on all major email platforms and smartphones</title>
+        <title>Costs Counter</title>
         <style type="text/css">
             /* RESET STYLES */
             html { background-color:#E1E1E1; margin:0; padding:0; }
@@ -249,18 +250,6 @@ $message = '
                                                                             </tr>
                                                                         </table>
                                                                     </td>
-                                                                    <td align="right" valign="middle" class="flexibleContainerBox">
-                                                                        <table border="0" cellpadding="0" cellspacing="0" width="100%" style="max-width:100%;">
-                                                                            <tr>
-                                                                                <td align="left" class="textContent">
-                                                                                    <!-- CONTENT // -->
-                                                                                    <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-                                                                                        If you cant see this message <a href="#" target="_blank" style="text-decoration:none;border-bottom:1px solid #828282;color:#828282;"><span style="color:#828282;">View&nbsp;it&nbsp;in&nbsp;your&nbsp;browser</span></a>.
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </td>
                                                                 </tr>
                                                             </table>
                                                         </td>
@@ -325,8 +314,8 @@ $message = '
                                                             <table border="0" cellpadding="30" cellspacing="0" width="100%">
                                                                 <tr>
                                                                     <td align="center" valign="top" class="textContent">
-                                                                        <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Welcome '.$user['username'].' to</h1>
-                                                                        <h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;">CHARGES COUNTER</h2>
+                                                                        <h1 style="color:#FFFFFF;line-height:100%;font-family:Helvetica,Arial,sans-serif;font-size:35px;font-weight:normal;margin-bottom:5px;text-align:center;">Welcome to the</h1>
+                                                                        <h2 style="text-align:center;font-weight:normal;font-family:Helvetica,Arial,sans-serif;font-size:23px;margin-bottom:10px;color:#205478;line-height:135%;">COSTS COUNTER</h2>
                                                                         <div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Thank you for registration</div>
                                                                     </td>
                                                                 </tr>
@@ -369,8 +358,8 @@ $message = '
                                                                         <table border="0" cellpadding="0" cellspacing="0" width="210" style="max-width: 100%;">
                                                                             <tr>
                                                                                 <td align="left" class="textContent">
-                                                                                    <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Everywhere with You</h3>
-                                                                                    <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Access ti your profile from phone, tablet, pc and etc. </div>
+                                                                                    <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Everywhere with you</h3><br>
+                                                                                    <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Access ti your profile from phone, tablet, pc and etc.</div><br>
                                                                                 </td>
                                                                             </tr>
                                                                         </table>
@@ -379,8 +368,8 @@ $message = '
                                                                         <table class="flexibleContainerBoxNext" border="0" cellpadding="0" cellspacing="0" width="210" style="max-width: 100%;">
                                                                             <tr>
                                                                                 <td align="left" class="textContent">
-                                                                                    <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Manage your profile</h3>
-                                                                                    <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Add your own custom categorys and tools.</div>
+                                                                                    <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Manage your profile</h3><br>
+                                                                                    <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Add your own currency, custom categories and tools</div><br>
                                                                                 </td>
                                                                             </tr>
                                                                         </table>
@@ -418,7 +407,7 @@ $message = '
                                                             <table border="0" cellpadding="0" cellspacing="0" width="50%" class="emailButton" style="background-color: #3498DB;">
                                                                 <tr>
                                                                     <td align="center" valign="middle" class="buttonContent" style="padding-top:15px;padding-bottom:15px;padding-right:15px;padding-left:15px;">
-                                                                        <a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="http://www.kirillgoryunov.local.com/charges" target="_blank">Start Now</a>
+                                                                        <a style="color:#FFFFFF;text-decoration:none;font-family:Helvetica,Arial,sans-serif;font-size:20px;line-height:135%;" href="http://www.costscounter.kirillgoryunov.com/login" target="_blank">Start Now</a>
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -457,7 +446,7 @@ $message = '
                                                                             <tr>
                                                                                 <td valign="top" class="textContent">
                                                                                     <h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Start manage your money now!</h3>
-                                                                                    <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Charges counter is way to manage your finance. Its simple, effective, and useful.</div>
+                                                                                    <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#5F5F5F;line-height:135%;">Costs counter is way to manage your finance. Its simple, effective, and useful.</div>
                                                                                 </td>
                                                                             </tr>
                                                                         </table>
@@ -494,12 +483,12 @@ $message = '
                                                             <!-- CONTENT TABLE // -->
                                                             <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
                                                                 <tr>
-                                                                    <td align="left" valign="top" class="flexibleContainerBox" style="background-color:#5F5F5F;">
-                                                                        <table border="0" cellpadding="30" cellspacing="0" width="100%" style="max-width:100%;">
+                                                                    <td align="left" valign="top" class="flexibleContainerBox" style="background-color:#5F5F5F;" >
+                                                                        <table border="0" cellpadding="30" cellspacing="0" width="100%" style="width:100%;">
                                                                             <tr>
                                                                                 <td align="left" class="textContent">
-                                                                                    <h3 style="color:#FFFFFF;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Left Column</h3>
-                                                                                    <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis.</div>
+                                                                                    <h3 style="color:#FFFFFF;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Account username</h3>
+                                                                                    <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">'.$user['username'].'</div>
                                                                                 </td>
                                                                             </tr>
                                                                         </table>
@@ -508,8 +497,8 @@ $message = '
                                                                         <table class="flexibleContainerBoxNext" border="0" cellpadding="30" cellspacing="0" width="100%" style="max-width:100%;">
                                                                             <tr>
                                                                                 <td align="left" class="textContent">
-                                                                                    <h3 style="color:#FFFFFF;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Right Column</h3>
-                                                                                    <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis.</div>
+                                                                                    <h3 style="color:#FFFFFF;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Account Password</h3>
+                                                                                    <div style="text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;color:#FFFFFF;line-height:135%;">'.$user['password'].'</div>
                                                                                 </td>
                                                                             </tr>
                                                                         </table>
@@ -549,7 +538,7 @@ $message = '
                                                                         <table border="0" cellpadding="0" cellspacing="0" width="100%">
                                                                             <tr>
                                                                                 <td valign="top" class="textContent">
-                                                                                    <div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;margin-top:3px;color:#5F5F5F;line-height:135%;">CHARGES COUNTER, 2015</div>
+                                                                                    <div style="text-align:center;font-family:Helvetica,Arial,sans-serif;font-size:15px;margin-bottom:0;margin-top:3px;color:#5F5F5F;line-height:135%;">COSTS COUNTER, 2015</div>
                                                                                 </td>
                                                                             </tr>
                                                                         </table>
@@ -602,7 +591,7 @@ $message = '
                                                                     <td valign="top" bgcolor="#E1E1E1">
 
                                                                         <div style="font-family:Helvetica,Arial,sans-serif;font-size:13px;color:#828282;text-align:center;line-height:120%;">
-                                                                        <div>Copyright &#169; 2015 <a href="http://www.kirillgoryunov.com/" target="_blank" style="text-decoration:none;color:#828282;"><span style="color:#828282;">KIRILLGORYUNOV.COM</span></a>. All&nbsp;rights&nbsp;reserved.</div>
+                                                                        <div>Copyright &#169; 2015 &nbsp <a href="http://www.kirillgoryunov.com/" target="_blank" style="text-decoration:none;color:#828282;"><span style="color:#828282;">KIRILLGORYUNOV.COM</span></a>. All&nbsp;rights&nbsp;reserved.</div>
                                                                             <div>If you do not want to recieve emails, you can <a href="#" target="_blank" style="text-decoration:none;color:#828282;"><span style="color:#828282;">unsubscribe</span></a>.</div>
                                                                         </div>
 
@@ -629,7 +618,6 @@ $message = '
         </center>
     </body>
 </html>
-
 
 
 '
